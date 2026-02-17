@@ -1,0 +1,17 @@
+C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital System\bin\Debug\net9.0-windows\Hospital System.exe
+C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital System\bin\Debug\net9.0-windows\Hospital System.deps.json
+C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital System\bin\Debug\net9.0-windows\Hospital System.runtimeconfig.json
+C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital System\bin\Debug\net9.0-windows\Hospital System.dll
+C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital System\bin\Debug\net9.0-windows\Hospital System.pdb
+C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital System\obj\Debug\net9.0-windows\Hospital_System.Form1.resources
+C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital System\obj\Debug\net9.0-windows\Hospital System.csproj.GenerateResource.cache
+C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital System\obj\Debug\net9.0-windows\Hospital System.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital System\obj\Debug\net9.0-windows\Hospital System.AssemblyInfoInputs.cache
+C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital System\obj\Debug\net9.0-windows\Hospital System.AssemblyInfo.cs
+C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital System\obj\Debug\net9.0-windows\Hospital System.csproj.CoreCompileInputs.cache
+C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital System\obj\Debug\net9.0-windows\Hospital System.sourcelink.json
+C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital System\obj\Debug\net9.0-windows\Hospital System.dll
+C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital System\obj\Debug\net9.0-windows\refint\Hospital System.dll
+C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital System\obj\Debug\net9.0-windows\Hospital System.pdb
+C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital System\obj\Debug\net9.0-windows\Hospital System.genruntimeconfig.cache
+C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital System\obj\Debug\net9.0-windows\ref\Hospital System.dll
