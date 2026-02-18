@@ -1,0 +1,2 @@
+﻿-- I think this is mainly going to be a testing thing most of the data queries will happen on forms 
+--SELECT * FROM patient
