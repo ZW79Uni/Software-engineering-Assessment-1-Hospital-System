@@ -1,6 +1,0 @@
-C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital Database system\bin\Debug\Hospital Database system.dacpac
-C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital Database system\obj\Debug\Hospital Database system.sqlproj.AssemblyReference.cache
-C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital Database system\obj\Debug\Hospital_Database_system.dll
-C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital Database system\obj\Debug\Hospital_Database_system.pdb
-C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital Database system\bin\Debug\Hospital_Database_system.dll
-C:\Users\ZCpU0\OneDrive\Documents\GitHub\Hospital System\Hospital-System\Hospital System\Hospital Database system\bin\Debug\Hospital_Database_system.pdb

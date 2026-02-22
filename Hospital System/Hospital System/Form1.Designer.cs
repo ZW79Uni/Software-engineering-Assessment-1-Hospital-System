@@ -28,56 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            crazyDatabaseInput = new Button();
-            awesomeDatabaseOutput = new TextBox();
-            crazyDatabaseSubmit = new Button();
-            inputpasswordyo = new TextBox();
+            allDisplay = new TextBox();
+            writeTo = new TextBox();
+            allButton = new Button();
+            writeButtton = new Button();
             SuspendLayout();
             // 
-            // crazyDatabaseInput
+            // allDisplay
             // 
-            crazyDatabaseInput.Location = new Point(112, 310);
-            crazyDatabaseInput.Name = "crazyDatabaseInput";
-            crazyDatabaseInput.Size = new Size(75, 23);
-            crazyDatabaseInput.TabIndex = 0;
-            crazyDatabaseInput.Text = "button1";
-            crazyDatabaseInput.UseVisualStyleBackColor = true;
-            crazyDatabaseInput.Click += crazyDatabaseInput_Click;
+            allDisplay.Location = new Point(118, 212);
+            allDisplay.Name = "allDisplay";
+            allDisplay.Size = new Size(100, 23);
+            allDisplay.TabIndex = 0;
             // 
-            // awesomeDatabaseOutput
+            // writeTo
             // 
-            awesomeDatabaseOutput.Location = new Point(31, 228);
-            awesomeDatabaseOutput.Name = "awesomeDatabaseOutput";
-            awesomeDatabaseOutput.Size = new Size(331, 23);
-            awesomeDatabaseOutput.TabIndex = 1;
-            awesomeDatabaseOutput.TextChanged += awesomeDatabaseOutput_TextChanged;
+            writeTo.Location = new Point(536, 212);
+            writeTo.Name = "writeTo";
+            writeTo.Size = new Size(100, 23);
+            writeTo.TabIndex = 1;
             // 
-            // crazyDatabaseSubmit
+            // allButton
             // 
-            crazyDatabaseSubmit.Location = new Point(604, 310);
-            crazyDatabaseSubmit.Name = "crazyDatabaseSubmit";
-            crazyDatabaseSubmit.Size = new Size(75, 23);
-            crazyDatabaseSubmit.TabIndex = 2;
-            crazyDatabaseSubmit.Text = "button2";
-            crazyDatabaseSubmit.UseVisualStyleBackColor = true;
-            crazyDatabaseSubmit.Click += crazyDatabaseSubmit_Click;
+            allButton.Location = new Point(143, 317);
+            allButton.Name = "allButton";
+            allButton.Size = new Size(75, 23);
+            allButton.TabIndex = 2;
+            allButton.Text = "button1";
+            allButton.UseVisualStyleBackColor = true;
+            allButton.Click += allButton_Click;
             // 
-            // inputpasswordyo
+            // writeButtton
             // 
-            inputpasswordyo.Location = new Point(451, 228);
-            inputpasswordyo.Name = "inputpasswordyo";
-            inputpasswordyo.Size = new Size(337, 23);
-            inputpasswordyo.TabIndex = 3;
+            writeButtton.Location = new Point(536, 317);
+            writeButtton.Name = "writeButtton";
+            writeButtton.Size = new Size(75, 23);
+            writeButtton.TabIndex = 3;
+            writeButtton.Text = "button2";
+            writeButtton.UseVisualStyleBackColor = true;
+            writeButtton.Click += writeButtton_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(inputpasswordyo);
-            Controls.Add(crazyDatabaseSubmit);
-            Controls.Add(awesomeDatabaseOutput);
-            Controls.Add(crazyDatabaseInput);
+            Controls.Add(writeButtton);
+            Controls.Add(allButton);
+            Controls.Add(writeTo);
+            Controls.Add(allDisplay);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -86,9 +85,9 @@
 
         #endregion
 
-        private Button crazyDatabaseInput;
-        private TextBox awesomeDatabaseOutput;
-        private Button crazyDatabaseSubmit;
-        private TextBox inputpasswordyo;
+        private TextBox allDisplay;
+        private TextBox writeTo;
+        private Button allButton;
+        private Button writeButtton;
     }
 }

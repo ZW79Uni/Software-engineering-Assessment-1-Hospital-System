@@ -5,7 +5,10 @@ VisualStudioVersion = 17.14.36705.20
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hospital System", "Hospital System\Hospital System.csproj", "{9FAA81ED-B588-44E7-9AEA-A17C06847717}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Hospital Database system", "Hospital Database system\Hospital Database system.sqlproj", "{5CB6D6BF-09A3-4635-981B-08B72C7DC198}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		Hospital Database System.db = Hospital Database System.db
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +20,6 @@ Global
 		{9FAA81ED-B588-44E7-9AEA-A17C06847717}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FAA81ED-B588-44E7-9AEA-A17C06847717}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FAA81ED-B588-44E7-9AEA-A17C06847717}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5CB6D6BF-09A3-4635-981B-08B72C7DC198}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5CB6D6BF-09A3-4635-981B-08B72C7DC198}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5CB6D6BF-09A3-4635-981B-08B72C7DC198}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{5CB6D6BF-09A3-4635-981B-08B72C7DC198}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5CB6D6BF-09A3-4635-981B-08B72C7DC198}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5CB6D6BF-09A3-4635-981B-08B72C7DC198}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

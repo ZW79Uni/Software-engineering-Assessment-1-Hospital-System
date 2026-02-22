@@ -1,76 +1,70 @@
-using Microsoft.Data.SqlClient;
-using System.Data;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 using System.Drawing.Text;
 
 namespace Hospital_System
 {
     public partial class Form1 : Form
     {
-        string connectionString = @"Server=(localdb)\ProjectModels;Database=Hospital database system;Trusted_Connection=True;"; //This basically serves as a link between the program and the database, don't change it please
+        string connectionString = @"Data Source=Hospital Database System.db;Version=3;"; //Connects the program to the SQLite database
         public Form1()
         {
             InitializeComponent();
+            createTables(); //runs the create table method placed here to run on start up
         }
 
-        private void crazyDatabaseInput_Click(object sender, EventArgs e)
+        private void createTables() // This functions creates the tables, SQL placed in string varrible
         {
-            using (SqlConnection conn = new SqlConnection(connectionString)) //Creates a new SQL connection, connection string is placed in the brackets as this is the path to the database basically
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
-                conn.Open(); //Opems the connection must be used at the start of EVERY function involving the database
-
-                string query = "SELECT * FROM patient"; // Queries are placed in stringd the following is an exampple of a select all
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                conn.Open(); //opens the connection to the database
+                string createTables = @" CREATE TABLE IF NOT EXISTS patient (
+                    patientID INTEGER PRIMARY KEY AUTOINCREMENT,
+                    password TEXT
+                    );
+                ";
+                using (SQLiteCommand cmd = new SQLiteCommand(createTables, conn))
                 {
+                    cmd.ExecuteNonQuery(); //runs the query
+                }
+            }
+        }
+
+        private void allButton_Click(object sender, EventArgs e) //This button selects all the items in the patient table
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                string selectALL = @" SELECT * FROM patient";
+                using (SQLiteCommand cmd = new SQLiteCommand(selectALL, conn))
+                using (SQLiteDataReader reader = cmd.ExecuteReader()) //Use this for reading the database
+                {
+                    allDisplay.Clear();
+
                     while (reader.Read())
                     {
-                        string line = "";
-
                         for (int i = 0; i < reader.FieldCount; i++)
                         {
-                            line += $"{reader.GetName(i)}: {reader[i]}";
+                            allDisplay.AppendText(reader[i].ToString() + " ");
                         }
-                        awesomeDatabaseOutput.AppendText(line + Environment.NewLine);
                     }
                 }
             }
         }
 
-        private void awesomeDatabaseOutput_TextChanged(object sender, EventArgs e)
+        private void writeButtton_Click(object sender, EventArgs e) //This table lets the user add there password and adds that to the database
         {
-
-        }
-
-        private void crazyDatabaseSubmit_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(inputpasswordyo.Text))
-            {
-                MessageBox.Show("WRONG I HATE YOU");
-                return;
-            }
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
                 conn.Open();
 
-                string highestID = "SELECT ISNULL (MAX(patientID), 0) FROM patient"; //Query getting the highest ID will be useful for forms involving us entering new things
-                int newID;
-                using (SqlCommand cmd = new SqlCommand(highestID, conn))
-            S    {
-                    newID = (int)cmd.ExecuteScalar() + 1;
-                }
-                string insert = "INSERT INTO patient (patientID, patientPassword) VALUES (@Id, @Password)"; //Insert script again would be useful in a lot of areas
-                using (SqlCommand cmdInsert = new SqlCommand(insert, conn))
+                string insert = "INSERT INTO patient (password) VALUES (@text)";
+
+                using (SQLiteCommand cmd = new SQLiteCommand(insert, conn))
                 {
-                    cmdInsert.Parameters.AddWithValue("@Id", newID);
-                    cmdInsert.Parameters.AddWithValue("@Password", inputpasswordyo.Text);
-
-                    cmdInsert.ExecuteNonQuery();
+                    cmd.Parameters.AddWithValue("@text", writeTo.Text);
+                    cmd.ExecuteNonQuery();
                 }
-
             }
-            inputpasswordyo.Clear();
         }
     }
 }
