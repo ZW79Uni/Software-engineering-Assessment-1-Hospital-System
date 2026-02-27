@@ -17,9 +17,24 @@ namespace Hospital_System
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
                 conn.Open(); //opens the connection to the database
-                string createTables = @" CREATE TABLE IF NOT EXISTS patient (
-                    patientID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    password TEXT
+                string createTables = @"
+                    CREATE TABLE IF NOT EXISTS patient (
+                        patientID INTEGER PRIMARY KEY AUTOINCREMENT,
+                        password TEXT
+                    );
+
+                    CREATE TABLE IF NOT EXISTS doctor (
+                        doctorID INTEGER PRIMARY KEY AUTOINCREMENT
+                    );
+
+                    CREATE TABLE IF NOT EXISTS appointment (
+                        appointmentID INTEGER PRIMARY KEY AUTOINCREMENT,
+                        patientID INTEGER,
+                        doctorID INTEGER,
+                        appointmentDateTime TEXT,
+                        appointmentNote TEXT,
+                        FOREIGN KEY(patientID) REFERENCES patient(patientID),
+                        FOREIGN KEY(doctorID) REFERENCES doctor(doctorID)
                     );
                 ";
                 using (SQLiteCommand cmd = new SQLiteCommand(createTables, conn))
