@@ -41,6 +41,7 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
+<<<<<<< Updated upstream
       "Microsoft.Data.Sqlite/10.0.3": {
         "type": "package",
         "dependencies": {
@@ -56,6 +57,9 @@
         }
       },
       "Microsoft.Data.Sqlite.Core/10.0.3": {
+=======
+      "Microsoft.Data.Sqlite.Core/10.0.4": {
+>>>>>>> Stashed changes
         "type": "package",
         "dependencies": {
           "SQLitePCLRaw.core": "2.1.11"
@@ -182,6 +186,7 @@
           }
         }
       },
+<<<<<<< Updated upstream
       "SQLitePCLRaw.bundle_e_sqlite3/2.1.11": {
         "type": "package",
         "dependencies": {
@@ -199,6 +204,12 @@
         "type": "package",
         "dependencies": {
           "System.Memory": "4.5.3"
+=======
+      "SQLitePCLRaw.core/3.0.2": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.6.3"
+>>>>>>> Stashed changes
         },
         "compile": {
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
@@ -207,6 +218,7 @@
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
         }
       },
+<<<<<<< Updated upstream
       "SQLitePCLRaw.lib.e_sqlite3/2.1.11": {
         "type": "package",
         "compile": {
@@ -323,6 +335,22 @@
         },
         "runtime": {
           "lib/net6.0-windows7.0/SQLitePCLRaw.provider.e_sqlite3.dll": {}
+=======
+      "Stub.System.Data.SQLite.Core.NetFramework/1.0.119": {
+        "type": "package",
+        "compile": {
+          "lib/net46/System.Data.SQLite.dll": {
+            "related": ".dll.altconfig;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net46/System.Data.SQLite.dll": {
+            "related": ".dll.altconfig;.xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net46/Stub.System.Data.SQLite.Core.NetFramework.targets": {}
+>>>>>>> Stashed changes
         }
       },
       "System.CodeDom/6.0.0": {
@@ -453,10 +481,17 @@
           }
         }
       },
+<<<<<<< Updated upstream
       "System.Memory/4.5.3": {
         "type": "package",
         "compile": {
           "ref/netcoreapp2.1/_._": {}
+=======
+      "System.Memory/4.6.3": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp2.1/_._": {}
+>>>>>>> Stashed changes
         },
         "runtime": {
           "lib/netcoreapp2.1/_._": {}
@@ -705,6 +740,7 @@
         "version.txt"
       ]
     },
+<<<<<<< Updated upstream
     "Microsoft.Data.Sqlite/10.0.3": {
       "sha512": "R/7g5hddFTzey+XOH7Hb3x71DdX5yDu3YqKDJbyn3QKiV6P38bYqkhsoDotanurh5mHLRc9hITE+pxL6Kjcpzw==",
       "type": "package",
@@ -723,6 +759,12 @@
       "sha512": "onD94qHlvteS2S9eg1T7Huehm3x92no4nU1AyDWjSmT6jDBhY8QF0UapwNhFA+1dArzxM10fV7s6uI1EIK2+dw==",
       "type": "package",
       "path": "microsoft.data.sqlite.core/10.0.3",
+=======
+    "Microsoft.Data.Sqlite.Core/10.0.4": {
+      "sha512": "UkmpN2pDkrtVLh+ypRDCbBij9mhPqOPzvHI625rf+VeT3FHnBwBjAY7XgjK8rGDI74fDx7C1SSIf2OAaAX4g2A==",
+      "type": "package",
+      "path": "microsoft.data.sqlite.core/10.0.4",
+>>>>>>> Stashed changes
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -732,7 +774,11 @@
         "lib/net8.0/Microsoft.Data.Sqlite.xml",
         "lib/netstandard2.0/Microsoft.Data.Sqlite.dll",
         "lib/netstandard2.0/Microsoft.Data.Sqlite.xml",
+<<<<<<< Updated upstream
         "microsoft.data.sqlite.core.10.0.3.nupkg.sha512",
+=======
+        "microsoft.data.sqlite.core.10.0.4.nupkg.sha512",
+>>>>>>> Stashed changes
         "microsoft.data.sqlite.core.nuspec"
       ]
     },
@@ -896,6 +942,7 @@
         "sqlite.nuspec"
       ]
     },
+<<<<<<< Updated upstream
     "SQLitePCLRaw.bundle_e_sqlite3/2.1.11": {
       "sha512": "DC4nA7yWnf4UZdgJDF+9Mus4/cb0Y3Sfgi3gDnAoKNAIBwzkskNAbNbyu+u4atT0ruVlZNJfwZmwiEwE5oz9LQ==",
       "type": "package",
@@ -988,6 +1035,65 @@
         "lib/netstandard2.0/SQLitePCLRaw.provider.e_sqlite3.dll",
         "sqlitepclraw.provider.e_sqlite3.2.1.11.nupkg.sha512",
         "sqlitepclraw.provider.e_sqlite3.nuspec"
+=======
+    "SQLitePCLRaw.core/3.0.2": {
+      "sha512": "tnbRf0muOOSJK1RLCfyYK13jynFScgL4xMj7yC3oy8lrrGKXTKmOoWjfdV+cFfBRdppm4qST31hvp8ihgIgvMQ==",
+      "type": "package",
+      "path": "sqlitepclraw.core/3.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/netstandard2.0/SQLitePCLRaw.core.dll",
+        "sqlitepclraw.core.3.0.2.nupkg.sha512",
+        "sqlitepclraw.core.nuspec"
+      ]
+    },
+    "Stub.System.Data.SQLite.Core.NetFramework/1.0.119": {
+      "sha512": "8b4SbSXAxXJ8tfn6bnBu0m+HXMZvkE+BfogUKITRFm+snxfT5BTK7fLZaAsNoFX8DkBBjtCEDd+ajWkcyu55QA==",
+      "type": "package",
+      "path": "stub.system.data.sqlite.core.netframework/1.0.119",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/net20/Stub.System.Data.SQLite.Core.NetFramework.targets",
+        "build/net20/x64/SQLite.Interop.dll",
+        "build/net20/x86/SQLite.Interop.dll",
+        "build/net40/Stub.System.Data.SQLite.Core.NetFramework.targets",
+        "build/net40/x64/SQLite.Interop.dll",
+        "build/net40/x86/SQLite.Interop.dll",
+        "build/net45/Stub.System.Data.SQLite.Core.NetFramework.targets",
+        "build/net45/x64/SQLite.Interop.dll",
+        "build/net45/x86/SQLite.Interop.dll",
+        "build/net451/Stub.System.Data.SQLite.Core.NetFramework.targets",
+        "build/net451/x64/SQLite.Interop.dll",
+        "build/net451/x86/SQLite.Interop.dll",
+        "build/net46/Stub.System.Data.SQLite.Core.NetFramework.targets",
+        "build/net46/x64/SQLite.Interop.dll",
+        "build/net46/x86/SQLite.Interop.dll",
+        "buildTransitive/net20/Stub.System.Data.SQLite.Core.NetFramework.targets",
+        "buildTransitive/net40/Stub.System.Data.SQLite.Core.NetFramework.targets",
+        "buildTransitive/net45/Stub.System.Data.SQLite.Core.NetFramework.targets",
+        "buildTransitive/net451/Stub.System.Data.SQLite.Core.NetFramework.targets",
+        "buildTransitive/net46/Stub.System.Data.SQLite.Core.NetFramework.targets",
+        "lib/net20/System.Data.SQLite.dll",
+        "lib/net20/System.Data.SQLite.dll.altconfig",
+        "lib/net20/System.Data.SQLite.xml",
+        "lib/net40/System.Data.SQLite.dll",
+        "lib/net40/System.Data.SQLite.dll.altconfig",
+        "lib/net40/System.Data.SQLite.xml",
+        "lib/net45/System.Data.SQLite.dll",
+        "lib/net45/System.Data.SQLite.dll.altconfig",
+        "lib/net45/System.Data.SQLite.xml",
+        "lib/net451/System.Data.SQLite.dll",
+        "lib/net451/System.Data.SQLite.dll.altconfig",
+        "lib/net451/System.Data.SQLite.xml",
+        "lib/net46/System.Data.SQLite.dll",
+        "lib/net46/System.Data.SQLite.dll.altconfig",
+        "lib/net46/System.Data.SQLite.xml",
+        "stub.system.data.sqlite.core.netframework.1.0.119.nupkg.sha512",
+        "stub.system.data.sqlite.core.netframework.nuspec"
+>>>>>>> Stashed changes
       ]
     },
     "System.CodeDom/6.0.0": {
@@ -1280,6 +1386,7 @@
         "useSharedDesignerContext.txt"
       ]
     },
+<<<<<<< Updated upstream
     "System.Memory/4.5.3": {
       "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
       "type": "package",
@@ -1299,6 +1406,27 @@
         "system.memory.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
+=======
+    "System.Memory/4.6.3": {
+      "sha512": "qdcDOgnFZY40+Q9876JUHnlHu7bosOHX8XISRoH94fwk6hgaeQGSgfZd8srWRZNt5bV9ZW2TljcegDNxsf+96A==",
+      "type": "package",
+      "path": "system.memory/4.6.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "buildTransitive/net461/System.Memory.targets",
+        "buildTransitive/net462/_._",
+        "lib/net462/System.Memory.dll",
+        "lib/net462/System.Memory.xml",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "lib/netstandard2.1/_._",
+        "system.memory.4.6.3.nupkg.sha512",
+        "system.memory.nuspec"
+>>>>>>> Stashed changes
       ]
     },
     "System.Security.AccessControl/6.0.0": {
@@ -1474,29 +1602,44 @@
   },
   "projectFileDependencyGroups": {
     "net9.0-windows7.0": [
+<<<<<<< Updated upstream
       "Microsoft.Data.Sqlite >= 10.0.3",
       "SQLite >= 3.13.0",
+=======
+      "Microsoft.Data.Sqlite.Core >= 10.0.4",
+      "SQLite >= 3.13.0",
+      "SQLitePCLRaw.core >= 3.0.2",
+      "Stub.System.Data.SQLite.Core.NetFramework >= 1.0.119",
+>>>>>>> Stashed changes
       "System.Data.SQLite.EF6 >= 2.0.2"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ZCpU0\\.nuget\\packages\\": {},
+    "C:\\Users\\Zachary Walker\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< Updated upstream
       "projectUniqueName": "C:\\Users\\ZCpU0\\OneDrive\\Documents\\GitHub\\Software engineering Assessment 1 Hospital System\\Software-engineering-Assessment-1-Hospital-System\\Hospital System\\Hospital System\\Hospital System.csproj",
       "projectName": "Hospital System",
       "projectPath": "C:\\Users\\ZCpU0\\OneDrive\\Documents\\GitHub\\Software engineering Assessment 1 Hospital System\\Software-engineering-Assessment-1-Hospital-System\\Hospital System\\Hospital System\\Hospital System.csproj",
       "packagesPath": "C:\\Users\\ZCpU0\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\ZCpU0\\OneDrive\\Documents\\GitHub\\Software engineering Assessment 1 Hospital System\\Software-engineering-Assessment-1-Hospital-System\\Hospital System\\Hospital System\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\Zachary Walker\\OneDrive - Canterbury Christ Church University\\Documents\\GitHub\\Software-engineering-Assessment-1-Hospital-System\\Hospital System\\Hospital System\\Hospital System.csproj",
+      "projectName": "Hospital System",
+      "projectPath": "C:\\Users\\Zachary Walker\\OneDrive - Canterbury Christ Church University\\Documents\\GitHub\\Software-engineering-Assessment-1-Hospital-System\\Hospital System\\Hospital System\\Hospital System.csproj",
+      "packagesPath": "C:\\Users\\Zachary Walker\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Zachary Walker\\OneDrive - Canterbury Christ Church University\\Documents\\GitHub\\Software-engineering-Assessment-1-Hospital-System\\Hospital System\\Hospital System\\obj\\",
+>>>>>>> Stashed changes
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ZCpU0\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Zachary Walker\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1523,20 +1666,37 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net9.0-windows7.0": {
         "targetAlias": "net9.0-windows",
         "dependencies": {
+<<<<<<< Updated upstream
           "Microsoft.Data.Sqlite": {
             "target": "Package",
             "version": "[10.0.3, )"
+=======
+          "Microsoft.Data.Sqlite.Core": {
+            "target": "Package",
+            "version": "[10.0.4, )"
+>>>>>>> Stashed changes
           },
           "SQLite": {
             "target": "Package",
             "version": "[3.13.0, )"
           },
+<<<<<<< Updated upstream
+=======
+          "SQLitePCLRaw.core": {
+            "target": "Package",
+            "version": "[3.0.2, )"
+          },
+          "Stub.System.Data.SQLite.Core.NetFramework": {
+            "target": "Package",
+            "version": "[1.0.119, )"
+          },
+>>>>>>> Stashed changes
           "System.Data.SQLite.EF6": {
             "target": "Package",
             "version": "[2.0.2, )"
@@ -1561,8 +1721,24 @@
             "privateAssets": "none"
           }
         },
+<<<<<<< Updated upstream
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.311/PortableRuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+>>>>>>> Stashed changes
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Stub.System.Data.SQLite.Core.NetFramework 1.0.119' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net9.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Stub.System.Data.SQLite.Core.NetFramework",
+      "targetGraphs": [
+        "net9.0-windows7.0"
+      ]
+    }
+  ]
 }

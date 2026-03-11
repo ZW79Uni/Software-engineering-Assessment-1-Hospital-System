@@ -8,8 +8,15 @@
     ".NETCoreApp,Version=v9.0": {
       "Hospital System/1.0.0": {
         "dependencies": {
+<<<<<<< Updated upstream
           "Microsoft.Data.Sqlite": "10.0.3",
           "SQLite": "3.13.0",
+=======
+          "Microsoft.Data.Sqlite.Core": "10.0.4",
+          "SQLite": "3.13.0",
+          "SQLitePCLRaw.core": "3.0.2",
+          "Stub.System.Data.SQLite.Core.NetFramework": "1.0.119",
+>>>>>>> Stashed changes
           "System.Data.SQLite.EF6": "2.0.2"
         },
         "runtime": {
@@ -36,6 +43,7 @@
         }
       },
       "Microsoft.CSharp/4.7.0": {},
+<<<<<<< Updated upstream
       "Microsoft.Data.Sqlite/10.0.3": {
         "dependencies": {
           "Microsoft.Data.Sqlite.Core": "10.0.3",
@@ -51,6 +59,16 @@
           "lib/net8.0/Microsoft.Data.Sqlite.dll": {
             "assemblyVersion": "10.0.3.0",
             "fileVersion": "10.0.326.7603"
+=======
+      "Microsoft.Data.Sqlite.Core/10.0.4": {
+        "dependencies": {
+          "SQLitePCLRaw.core": "3.0.2"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Data.Sqlite.dll": {
+            "assemblyVersion": "10.0.4.0",
+            "fileVersion": "10.0.426.12010"
+>>>>>>> Stashed changes
           }
         }
       },
@@ -119,6 +137,7 @@
           }
         }
       },
+<<<<<<< Updated upstream
       "SQLitePCLRaw.bundle_e_sqlite3/2.1.11": {
         "dependencies": {
           "SQLitePCLRaw.lib.e_sqlite3": "2.1.11",
@@ -272,6 +291,20 @@
           }
         }
       },
+=======
+      "SQLitePCLRaw.core/3.0.2": {
+        "dependencies": {
+          "System.Memory": "4.6.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.core.dll": {
+            "assemblyVersion": "3.0.2.2801",
+            "fileVersion": "3.0.2.2801"
+          }
+        }
+      },
+      "Stub.System.Data.SQLite.Core.NetFramework/1.0.119": {},
+>>>>>>> Stashed changes
       "System.CodeDom/6.0.0": {},
       "System.ComponentModel.Annotations/5.0.0": {},
       "System.Configuration.ConfigurationManager/6.0.1": {
@@ -332,7 +365,11 @@
           "Microsoft.Win32.SystemEvents": "6.0.0"
         }
       },
+<<<<<<< Updated upstream
       "System.Memory/4.5.3": {},
+=======
+      "System.Memory/4.6.3": {},
+>>>>>>> Stashed changes
       "System.Security.AccessControl/6.0.0": {},
       "System.Security.Cryptography.ProtectedData/6.0.0": {},
       "System.Security.Permissions/6.0.0": {
@@ -369,6 +406,7 @@
       "path": "microsoft.csharp/4.7.0",
       "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
     },
+<<<<<<< Updated upstream
     "Microsoft.Data.Sqlite/10.0.3": {
       "type": "package",
       "serviceable": true,
@@ -382,6 +420,14 @@
       "sha512": "sha512-onD94qHlvteS2S9eg1T7Huehm3x92no4nU1AyDWjSmT6jDBhY8QF0UapwNhFA+1dArzxM10fV7s6uI1EIK2+dw==",
       "path": "microsoft.data.sqlite.core/10.0.3",
       "hashPath": "microsoft.data.sqlite.core.10.0.3.nupkg.sha512"
+=======
+    "Microsoft.Data.Sqlite.Core/10.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UkmpN2pDkrtVLh+ypRDCbBij9mhPqOPzvHI625rf+VeT3FHnBwBjAY7XgjK8rGDI74fDx7C1SSIf2OAaAX4g2A==",
+      "path": "microsoft.data.sqlite.core/10.0.4",
+      "hashPath": "microsoft.data.sqlite.core.10.0.4.nupkg.sha512"
+>>>>>>> Stashed changes
     },
     "Microsoft.Win32.Registry/4.7.0": {
       "type": "package",
@@ -432,6 +478,7 @@
       "path": "sqlite/3.13.0",
       "hashPath": "sqlite.3.13.0.nupkg.sha512"
     },
+<<<<<<< Updated upstream
     "SQLitePCLRaw.bundle_e_sqlite3/2.1.11": {
       "type": "package",
       "serviceable": true,
@@ -459,6 +506,21 @@
       "sha512": "sha512-Y/0ZkR+r0Cg3DQFuCl1RBnv/tmxpIZRU3HUvelPw6MVaKHwYYR8YNvgs0vuNuXCMvlyJ+Fh88U1D4tah1tt6qw==",
       "path": "sqlitepclraw.provider.e_sqlite3/2.1.11",
       "hashPath": "sqlitepclraw.provider.e_sqlite3.2.1.11.nupkg.sha512"
+=======
+    "SQLitePCLRaw.core/3.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tnbRf0muOOSJK1RLCfyYK13jynFScgL4xMj7yC3oy8lrrGKXTKmOoWjfdV+cFfBRdppm4qST31hvp8ihgIgvMQ==",
+      "path": "sqlitepclraw.core/3.0.2",
+      "hashPath": "sqlitepclraw.core.3.0.2.nupkg.sha512"
+    },
+    "Stub.System.Data.SQLite.Core.NetFramework/1.0.119": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8b4SbSXAxXJ8tfn6bnBu0m+HXMZvkE+BfogUKITRFm+snxfT5BTK7fLZaAsNoFX8DkBBjtCEDd+ajWkcyu55QA==",
+      "path": "stub.system.data.sqlite.core.netframework/1.0.119",
+      "hashPath": "stub.system.data.sqlite.core.netframework.1.0.119.nupkg.sha512"
+>>>>>>> Stashed changes
     },
     "System.CodeDom/6.0.0": {
       "type": "package",
@@ -509,12 +571,21 @@
       "path": "system.drawing.common/6.0.0",
       "hashPath": "system.drawing.common.6.0.0.nupkg.sha512"
     },
+<<<<<<< Updated upstream
     "System.Memory/4.5.3": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
       "path": "system.memory/4.5.3",
       "hashPath": "system.memory.4.5.3.nupkg.sha512"
+=======
+    "System.Memory/4.6.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qdcDOgnFZY40+Q9876JUHnlHu7bosOHX8XISRoH94fwk6hgaeQGSgfZd8srWRZNt5bV9ZW2TljcegDNxsf+96A==",
+      "path": "system.memory/4.6.3",
+      "hashPath": "system.memory.4.6.3.nupkg.sha512"
+>>>>>>> Stashed changes
     },
     "System.Security.AccessControl/6.0.0": {
       "type": "package",

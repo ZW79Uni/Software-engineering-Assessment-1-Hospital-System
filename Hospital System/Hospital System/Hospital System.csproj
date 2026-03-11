@@ -10,8 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< Updated upstream
     <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.3" />
     <PackageReference Include="SQLite" Version="3.13.0" />
+=======
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="10.0.4" />
+    <PackageReference Include="SQLite" Version="3.13.0" />
+    <PackageReference Include="SQLitePCLRaw.core" Version="3.0.2" />
+    <PackageReference Include="Stub.System.Data.SQLite.Core.NetFramework" Version="1.0.119" />
+>>>>>>> Stashed changes
     <PackageReference Include="System.Data.SQLite.EF6" Version="2.0.2" />
   </ItemGroup>
 
