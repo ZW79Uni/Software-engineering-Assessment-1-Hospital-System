@@ -1,1 +1,0 @@
-CREATE schema "Hospital System";

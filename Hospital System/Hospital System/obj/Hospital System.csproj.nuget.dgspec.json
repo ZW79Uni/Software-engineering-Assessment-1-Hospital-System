@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ZCpU0\\OneDrive\\Documents\\GitHub\\Hospital System\\Hospital-System\\Hospital System\\Hospital System\\Hospital System.csproj": {}
+    "C:\\Users\\ZCpU0\\OneDrive\\Documents\\GitHub\\Software engineering Assessment 1 Hospital System\\Software-engineering-Assessment-1-Hospital-System\\Hospital System\\Hospital System\\Hospital System.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ZCpU0\\OneDrive\\Documents\\GitHub\\Hospital System\\Hospital-System\\Hospital System\\Hospital System\\Hospital System.csproj": {
+    "C:\\Users\\ZCpU0\\OneDrive\\Documents\\GitHub\\Software engineering Assessment 1 Hospital System\\Software-engineering-Assessment-1-Hospital-System\\Hospital System\\Hospital System\\Hospital System.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ZCpU0\\OneDrive\\Documents\\GitHub\\Hospital System\\Hospital-System\\Hospital System\\Hospital System\\Hospital System.csproj",
+        "projectUniqueName": "C:\\Users\\ZCpU0\\OneDrive\\Documents\\GitHub\\Software engineering Assessment 1 Hospital System\\Software-engineering-Assessment-1-Hospital-System\\Hospital System\\Hospital System\\Hospital System.csproj",
         "projectName": "Hospital System",
-        "projectPath": "C:\\Users\\ZCpU0\\OneDrive\\Documents\\GitHub\\Hospital System\\Hospital-System\\Hospital System\\Hospital System\\Hospital System.csproj",
+        "projectPath": "C:\\Users\\ZCpU0\\OneDrive\\Documents\\GitHub\\Software engineering Assessment 1 Hospital System\\Software-engineering-Assessment-1-Hospital-System\\Hospital System\\Hospital System\\Hospital System.csproj",
         "packagesPath": "C:\\Users\\ZCpU0\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ZCpU0\\OneDrive\\Documents\\GitHub\\Hospital System\\Hospital-System\\Hospital System\\Hospital System\\obj\\",
+        "outputPath": "C:\\Users\\ZCpU0\\OneDrive\\Documents\\GitHub\\Software engineering Assessment 1 Hospital System\\Software-engineering-Assessment-1-Hospital-System\\Hospital System\\Hospital System\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,6 +49,28 @@
       "frameworks": {
         "net9.0-windows7.0": {
           "targetAlias": "net9.0-windows",
+          "dependencies": {
+            "Microsoft.Data.Sqlite.Core": {
+              "target": "Package",
+              "version": "[10.0.4, )"
+            },
+            "SQLite": {
+              "target": "Package",
+              "version": "[3.13.0, )"
+            },
+            "SQLitePCLRaw.core": {
+              "target": "Package",
+              "version": "[3.0.2, )"
+            },
+            "Stub.System.Data.SQLite.Core.NetFramework": {
+              "target": "Package",
+              "version": "[1.0.119, )"
+            },
+            "System.Data.SQLite.EF6": {
+              "target": "Package",
+              "version": "[2.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -68,7 +90,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.311/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
