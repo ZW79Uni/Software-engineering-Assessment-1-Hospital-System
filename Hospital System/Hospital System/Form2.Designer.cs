@@ -34,6 +34,7 @@
             toolStripMenuItem1 = new ToolStripMenuItem();
             toolStripMenuItem2 = new ToolStripMenuItem();
             toolStripMenuItem3 = new ToolStripMenuItem();
+            timingFormButton = new Button();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -43,7 +44,7 @@
             WelcomeTextBox.Name = "WelcomeTextBox";
             WelcomeTextBox.Size = new Size(535, 81);
             WelcomeTextBox.TabIndex = 0;
-            WelcomeTextBox.Text = "Welcome, USERNAME.";
+            WelcomeTextBox.Text = "";
             // 
             // menuStrip1
             // 
@@ -79,11 +80,22 @@
             toolStripMenuItem3.Size = new Size(180, 22);
             toolStripMenuItem3.Text = "toolStripMenuItem3";
             // 
+            // timingFormButton
+            // 
+            timingFormButton.Location = new Point(546, 251);
+            timingFormButton.Name = "timingFormButton";
+            timingFormButton.Size = new Size(116, 49);
+            timingFormButton.TabIndex = 2;
+            timingFormButton.Text = "doctor timing and appoitment booking";
+            timingFormButton.UseVisualStyleBackColor = true;
+            timingFormButton.Click += timingFormButton_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(timingFormButton);
             Controls.Add(WelcomeTextBox);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -103,5 +115,6 @@
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem toolStripMenuItem2;
         private ToolStripMenuItem toolStripMenuItem3;
+        private Button timingFormButton;
     }
 }

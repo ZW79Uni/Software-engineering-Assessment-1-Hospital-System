@@ -13,9 +13,22 @@ namespace Hospital_System
     //this is the HOMEPAGE (and everything else)
     public partial class Form2 : Form
     {
-        public Form2()
+        string userTag = string.Empty;
+        int uID;
+        public Form2(string userName, int ID) //pulls the username from the login for to display on here.
         {
             InitializeComponent();
+            WelcomeTextBox.Text = "Welcome " + userName + "!"; // Edit text for the text box here
+            userTag = userName;
+            uID = ID;
+        }
+
+        private void timingFormButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form3 form3 = new Form3(userTag, uID);
+            form3.ShowDialog();
+            this.Close();
         }
     }
 }

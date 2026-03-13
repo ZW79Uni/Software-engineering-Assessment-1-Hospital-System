@@ -36,6 +36,9 @@
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             incorrectBox = new TextBox();
+            textBox3 = new TextBox();
+            idTextBox = new RichTextBox();
+            textBox4 = new TextBox();
             SuspendLayout();
             // 
             // UsernamePassword
@@ -108,11 +111,41 @@
             incorrectBox.Size = new Size(258, 16);
             incorrectBox.TabIndex = 7;
             // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(67, 121);
+            textBox3.Name = "textBox3";
+            textBox3.ReadOnly = true;
+            textBox3.Size = new Size(62, 23);
+            textBox3.TabIndex = 8;
+            textBox3.Text = " ID:";
+            // 
+            // idTextBox
+            // 
+            idTextBox.Location = new Point(135, 121);
+            idTextBox.Name = "idTextBox";
+            idTextBox.Size = new Size(203, 23);
+            idTextBox.TabIndex = 9;
+            idTextBox.Text = "";
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(12, 70);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(520, 23);
+            textBox4.TabIndex = 10;
+            textBox4.Text = "To devs we have a test user the log in is ID = 1 Usename = TS1! Password = password123!";
+            textBox4.TextChanged += textBox4_TextChanged;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(434, 278);
+            CausesValidation = false;
+            ClientSize = new Size(535, 278);
+            Controls.Add(textBox4);
+            Controls.Add(idTextBox);
+            Controls.Add(textBox3);
             Controls.Add(incorrectBox);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
@@ -137,5 +170,8 @@
         private TextBox textBox1;
         private TextBox textBox2;
         private TextBox incorrectBox;
+        private TextBox textBox3;
+        private RichTextBox idTextBox;
+        private TextBox textBox4;
     }
 }

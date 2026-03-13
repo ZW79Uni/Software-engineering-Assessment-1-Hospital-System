@@ -22,17 +22,18 @@ namespace Hospital_System
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
                 conn.Open(); //opens the connection to the database
-                string query = "SELECT CAST(patientID AS TEXT) FROM patient WHERE patientID = @id AND password = @password"; // Query to see if the inputted credentials exist in the database
+                string query = "SELECT * FROM patient WHERE @id = patientID AND username = @username AND password = @password"; // Query to see if the inputted credentials exist in the database
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@id", UsernameTextBox.Text); // inputs the ID and password into the query
+                    cmd.Parameters.AddWithValue("@id", idTextBox.Text);
+                    cmd.Parameters.AddWithValue("@username", UsernameTextBox.Text); // inputs the ID and password into the query
                     cmd.Parameters.AddWithValue("@password", PasswordTextBox.Text); // May need to add encryption I think
                     var result = cmd.ExecuteScalar(); // var makes the compiler infers the type of the variable, ExecuteScalar is used to execute the query and return a single value (the patientID if the credentials are correct, or null if they are not)
                     if (result != null)
                     {
                         //if they do, open the next form
                         this.Hide();
-                        Form2 form2 = new Form2();
+                        Form2 form2 = new Form2(UsernameTextBox.Text, Convert.ToInt32(idTextBox.Text));
                         form2.ShowDialog();
                         this.Close();
                     }
@@ -63,34 +64,30 @@ namespace Hospital_System
             {
                 conn.Open(); //opens the connection to the database
                 string createTables = @"
+
+                    DROP TABLE IF EXISTS appointment;                    
+
                     CREATE TABLE IF NOT EXISTS patient (
                         patientID INTEGER PRIMARY KEY AUTOINCREMENT,
-                        password TEXT
+                        password VARCHAR(50),
+                        username VARCHAR(50),
+                        firstName VARCHAR(50),
+                        lastName VARCHAR(50)
                     );
 
                     CREATE TABLE IF NOT EXISTS doctor (
-                        doctorID INTEGER PRIMARY KEY AUTOINCREMENT
-                    );
-
-                    CREATE TABLE IF NOT EXISTS date (
-                        dateID INTEGER PRIMARY KEY AUTOINCREMENT,
-                        date VARCHAR(10)
-                    );
-
-                    CREATE TABLE IF NOT EXISTS time (
-                        timeID INTEGER PRIMARY KEY AUTOINCREMENT,
-                        time VARCHAR(5)
+                        doctorID INTEGER PRIMARY KEY AUTOINCREMENT,
+                        firstName VARCHAR(50),
+                        lastName VARCHAR(50)
                     );
 
                     CREATE TABLE IF NOT EXISTS appointment (
                         appointmentID INTEGER PRIMARY KEY AUTOINCREMENT,
                         patientID INTEGER,
                         doctorID INTEGER,
-                        dateID INTEGER,
-                        timeID INTEGER,
+                        date VARCHAR(50),
+                        time VARCHAR(50),
                         appointmentNote TEXT,
-                        FOREIGN KEY(dateID) REFERENCES date(dateID), 
-                        FOREIGN KEY(timeID) REFERENCES time(timeID),
                         FOREIGN KEY(patientID) REFERENCES patient(patientID),
                         FOREIGN KEY(doctorID) REFERENCES doctor(doctorID)
                     );
@@ -101,82 +98,55 @@ namespace Hospital_System
                     cmd.ExecuteNonQuery(); //runs the query
                 }
             }
-            /* using (SQLiteConnection conn = new SQLiteConnection(connectionString)) -- thing to add dates
+            /*
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
                 conn.Open();
 
-                string insert = "INSERT INTO date (date) VALUES (@text)";
-                int dateDay = 1;
-                int dateMonth = 3; 
-                int dateYear = 2026;
-                for (int i = 0; i < 93; i++)
+                string insert = "INSERT INTO patient (password, username, firstName, lastName) VALUES (@password, @username, @firstName, @lastName)";
+                using (SQLiteCommand cmd = new SQLiteCommand(insert, conn))
                 {
-                    if(i == 31)
-                    {
-                        dateDay = 1;
-                        dateMonth = 4;
-                    }
-                    if(i == 62)
-                    {
-                        dateDay = 1;
-                        dateMonth = 5;
-                    }
-                    using (SQLiteCommand cmd = new SQLiteCommand(insert, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@text", dateDay + "/" + dateMonth + "/" + dateYear);
-                        cmd.ExecuteNonQuery();
-                    }
-                    dateDay++;
+                    cmd.Parameters.AddWithValue("@password", "password123!");
+                    cmd.Parameters.AddWithValue("@username", "TS1!");
+                    cmd.Parameters.AddWithValue("@firstName", "Thomas");
+                    cmd.Parameters.AddWithValue("@lastName", "Simpson");
+                    cmd.ExecuteNonQuery();
                 }
             }
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString)) -- Adding times insert
             
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
                 conn.Open();
 
-                string insert = "INSERT INTO time (time) VALUES (@text)";
-                string timeMin = "00";
-                int timeHour = 0;
-                for (int i = 0; i < 47; i++)
+                string insert = "INSERT INTO doctor (firstName, lastName) VALUES (@firstName, @lastName)";
+                using (SQLiteCommand cmd = new SQLiteCommand(insert, conn))
                 {
-                    using (SQLiteCommand cmd = new SQLiteCommand(insert, conn))
-                    {
-                        
-                        if(i <= 9)
-                        {
-                            cmd.Parameters.AddWithValue("@text", "0" + timeHour + ":" + timeMin);
-                        }
-                        else
-                        {
-                            cmd.Parameters.AddWithValue("@text", timeHour + ":" + timeMin);
-                        }
-                        cmd.ExecuteNonQuery();
-                    }
-                    int rem = i % 2;
-                    if(rem == 0)
-                    {
-                        timeMin = "00";
-                        timeHour++;
-                    }
-                    else
-                    {
-                        timeMin = "30";
-                    }
+                    cmd.Parameters.AddWithValue("@firstName", "Martha");
+                    cmd.Parameters.AddWithValue("@lastName", "Adams");
+                    cmd.ExecuteNonQuery();
                 }
             }
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
                 conn.Open();
 
-                string insert = "INSERT INTO patient (password) VALUES (@text)";
+                string insert = "INSERT INTO appointment (patientID, doctorID, date, time, appointmentNote) VALUES (@patientID, @doctorID, @date, @time, @appoitmentNote)";
                 using (SQLiteCommand cmd = new SQLiteCommand(insert, conn))
                 {
-                    cmd.Parameters.AddWithValue("@text", "password");
+                    cmd.Parameters.AddWithValue("@patientID", "1");
+                    cmd.Parameters.AddWithValue("@doctorID", "1");
+                    cmd.Parameters.AddWithValue("@date", "20/3/2026");
+                    cmd.Parameters.AddWithValue("@time", "10:30");
+                    cmd.Parameters.AddWithValue("@appoitmentNote", "test");
+                    cmd.ExecuteNonQuery();
                 }
             }
             */
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
