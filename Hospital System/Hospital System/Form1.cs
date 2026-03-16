@@ -63,9 +63,7 @@ namespace Hospital_System
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
                 conn.Open(); //opens the connection to the database
-                string createTables = @"
-
-                    DROP TABLE IF EXISTS appointment;                    
+                string createTables = @"                  
 
                     CREATE TABLE IF NOT EXISTS patient (
                         patientID INTEGER PRIMARY KEY AUTOINCREMENT,

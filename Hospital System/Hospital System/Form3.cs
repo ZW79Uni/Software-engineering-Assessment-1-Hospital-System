@@ -120,25 +120,51 @@ namespace Hospital_System
             }
         }
 
-        void populateTimeDropDown(int doctorID, DateTime selectedDate) //Adds the times to the drop down menu
-        { //THIS CURRENTLY BUGGED AND NEEDS TO BE FIXED: The drop down lets you select booked times eg you can select 20th of march 10:30pm 
+        void populateTimeDropDown() // Adds the times to the drop down menu
+        {
             int hour = 9;
-            int min = 00;
+            int min = 0;
             timeDropDown.Items.Clear();
-            for (int i = 1; i < 18; i++)
+
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
-                if (i % 2 == 0)
+                conn.Open();
+
+                // Query to check the count of appointments for a specific doctor and date
+                string checkTime = @"SELECT COUNT(*) FROM appointment WHERE doctorID = @dID AND date = @date AND time = @time";
+
+                for (int i = 1; i < 18; i++)
                 {
-                    string time = Convert.ToString(hour) + ":" + Convert.ToString(min);
-                    timeDropDown.Items.Add(time);
-                    hour++;
-                    min = 00;
-                }
-                else
-                {
-                    string time = Convert.ToString(hour) + ":" + Convert.ToString(min) + "0";
-                    timeDropDown.Items.Add(time);
-                    min = 30;
+                    // Build the time slot for the loop
+                    string timeSlot = $"{hour}:{min:D2}";
+
+                    using (SQLiteCommand cmd = new SQLiteCommand(checkTime, conn))
+                    {
+                        // Add parameters for doctorID and date
+                        cmd.Parameters.AddWithValue("@dID", doctorDropDown.SelectedIndex + 1);
+                        cmd.Parameters.AddWithValue("@date", datePicker.CurrentCell.Value);
+                        cmd.Parameters.AddWithValue("@time", timeSlot);
+
+                        // Execute the query and get the count of existing appointments at that time
+                        int appointmentCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        // If no appointments are found for this time, add it to the dropdown
+                        if (appointmentCount == 0)
+                        {
+                            timeDropDown.Items.Add(timeSlot);
+                        }
+                    }
+
+                    // Increment the time to the next slot (9:00, 9:30, 10:00, 10:30, etc.)
+                    if (min == 0)
+                    {
+                        min = 30;
+                    }
+                    else
+                    {
+                        min = 0;
+                        hour++;
+                    }
                 }
             }
         }
@@ -149,10 +175,8 @@ namespace Hospital_System
             {
                 timeDropDown.Enabled = true; //enables time drop down
 
-                string selectedDateString = datePicker.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                DateTime selectedDate = DateTime.Parse(selectedDateString);
 
-                populateTimeDropDown(doctorDropDown.SelectedIndex, selectedDate);
+                populateTimeDropDown();
             }
             else //Locks the time drop down so you cannot pick a time before a date
             {
