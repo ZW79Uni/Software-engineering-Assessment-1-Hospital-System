@@ -33,13 +33,23 @@ namespace Hospital_System
         }
         void populateAppoitmentDates(int indexM, int indexY) //creates the dates within the calender system
         {
+            for (int i = 0; i < datePicker.Rows.Count; i++)
+            {
+                for (int j = 0; j < datePicker.Columns.Count; j++)
+                {
+                    datePicker.Rows[i].Cells[j].Value = null;
+                    datePicker.Rows[i].Cells[j].Style.BackColor = Color.White;
+                    datePicker.Rows[i].Cells[j].ReadOnly = false;
+                }
+            }
+
             int daysInCurrentMonth = DateTime.DaysInMonth(indexY, indexM);
             DateTime firstDayOfMonth = new DateTime(indexY, indexM, 1);
             int firstDayOfWeek = (int)firstDayOfMonth.DayOfWeek; //these varribles gather the amount of days in a month
 
             int day = 1;
 
-            for (int row = 1; row < datePicker.Rows.Count; row++) //Loop through equal to the number of rows
+            for (int row = 0; row < datePicker.Rows.Count; row++) //Loop through equal to the number of rows
             {
                 for (int col = 0; col < 7; col++) // Move to the next row after 7 days
                 {
@@ -84,17 +94,20 @@ namespace Hospital_System
         }
         void doctorAppoitmentStructure() //Creates the structure of the calender system
         {
-            for (int i = 0; i < 7; i++)
+            if (datePicker.Columns.Count == 0)
             {
-                datePicker.Columns.Add("col" + i, "");
-            }
-            for (int i = 0; i < 7; i++)
-            {
-                datePicker.Rows[0].Cells[i].Value = days[i];
-            }
-            for (int i = 0; i < 6; i++)
-            {
-                datePicker.Rows.Add();
+                for (int i = 0; i < 7; i++)
+                {
+                    datePicker.Columns.Add("col" + i, days[i]);
+                }
+                for (int i = 0; i < datePicker.Columns.Count; i++)
+                {
+                    datePicker.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+                }
+                for (int i = 0; i < 6; i++)
+                {
+                    datePicker.Rows.Add();
+                }
             }
         }
         void populateDoctorDropDown() //Adds the doctors from the database to the drop down menu
@@ -147,6 +160,7 @@ namespace Hospital_System
 
                         // Execute the query and get the count of existing appointments at that time
                         int appointmentCount = Convert.ToInt32(cmd.ExecuteScalar());
+                        
 
                         // If no appointments are found for this time, add it to the dropdown
                         if (appointmentCount == 0)
@@ -169,19 +183,31 @@ namespace Hospital_System
             }
         }
 
-        private void datePicker_CellContentClick(object sender, DataGridViewCellEventArgs e) //click to pick a date
+        private void datePicker_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (datePicker.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor != Color.Gray) //you can click on any cell that doesnt have the style grey
+            // Ignore clicks outside valid rows/columns
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
             {
-                timeDropDown.Enabled = true; //enables time drop down
-
-
-                populateTimeDropDown();
+                return;
             }
-            else //Locks the time drop down so you cannot pick a time before a date
+
+            var cell = datePicker.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+            // Ignore clicks on empty cells
+            if (cell.Value == null)
+            {
+                return;
+            }
+            // Ignore clicks on past dates (gray) or any invalid cells
+            if (cell.Style.BackColor == Color.Gray)
             {
                 timeDropDown.Enabled = false;
+                return;
             }
+
+            // Valid date selected
+            timeDropDown.Enabled = true;
+            populateTimeDropDown();
         }
 
         private void previousMonth_Click(object sender, EventArgs e) //when clicked shows the previous month
@@ -212,7 +238,6 @@ namespace Hospital_System
                 indexMonth++;
             }
 
-            doctorAppoitmentStructure();
             populateAppoitmentDates(indexMonth, indexYear);
         }
 

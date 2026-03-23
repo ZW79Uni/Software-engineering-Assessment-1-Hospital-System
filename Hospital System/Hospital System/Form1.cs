@@ -123,7 +123,7 @@ namespace Hospital_System
                     cmd.Parameters.AddWithValue("@lastName", "Adams");
                     cmd.ExecuteNonQuery();
                 }
-            }
+            }1qa    \
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
                 conn.Open();
