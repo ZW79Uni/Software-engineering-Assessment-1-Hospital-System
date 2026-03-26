@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Drawing.Text;
+using System.Drawing.Text; //hi :) 
 
 namespace Hospital_System
 {
@@ -39,8 +39,28 @@ namespace Hospital_System
                     }
                     else
                     {
-                        //if they don't, display an error message
-                        incorrectBox.Text = "Incorrect username or password. Please try again.";
+                        //not sure where to put this, but here's an attempt at doctor logins (thanks for the doc Zach, it helped! :D)
+                        string queryDoctor = "SELECT * FROM doctor WHERE @id = doctorID AND username = @username AND password = @password";
+                        //stuff here
+                        using (SQLiteCommand cmd2 = new SQLiteCommand(queryDoctor, conn))
+                        {
+                            cmd2.Parameters.AddWithValue("@id", idTextBox.Text);
+                            cmd2.Parameters.AddWithValue("@username", UsernameTextBox.Text);
+                            cmd2.Parameters.AddWithValue("@password", PasswordTextBox.Text);
+                            var result2 = cmd2.ExecuteScalar();
+                            if (result2 != null)
+                            {
+                                this.Hide();
+                                Form4 form4 = new Form4();
+                                form4.ShowDialog();
+                                this.Close();
+                            }
+                            else
+                            {
+                                //if patient and doctor details don't exist, display an error message
+                                incorrectBox.Text = "Incorrect username or password. Please try again.";
+                            }
+                        }
                     }
                 }
             }
@@ -63,8 +83,7 @@ namespace Hospital_System
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
                 conn.Open(); //opens the connection to the database
-                string createTables = @"                  
-
+                string createTables = @"  
                     CREATE TABLE IF NOT EXISTS patient (
                         patientID INTEGER PRIMARY KEY AUTOINCREMENT,
                         password VARCHAR(50),
@@ -76,9 +95,10 @@ namespace Hospital_System
                     CREATE TABLE IF NOT EXISTS doctor (
                         doctorID INTEGER PRIMARY KEY AUTOINCREMENT,
                         firstName VARCHAR(50),
-                        lastName VARCHAR(50)
+                        lastName VARCHAR(50),
+                        username VARCHAR(50),
+                        password VARCHAR(50)
                     );
-
                     CREATE TABLE IF NOT EXISTS appointment (
                         appointmentID INTEGER PRIMARY KEY AUTOINCREMENT,
                         patientID INTEGER,
@@ -123,19 +143,20 @@ namespace Hospital_System
                     cmd.ExecuteNonQuery();
                 }
             }
-            
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
                 conn.Open();
 
-                string insert = "INSERT INTO doctor (firstName, lastName) VALUES (@firstName, @lastName)";
+                string insert = "INSERT INTO doctor (firstName, lastName, username, password) VALUES (@firstName, @lastName, @username, @password)";
                 using (SQLiteCommand cmd = new SQLiteCommand(insert, conn))
                 {
                     cmd.Parameters.AddWithValue("@firstName", "Martha");
                     cmd.Parameters.AddWithValue("@lastName", "Adams");
+                    cmd.Parameters.AddWithValue("@username", "!MA2");
+                    cmd.Parameters.AddWithValue("@password", "password123!");
                     cmd.ExecuteNonQuery();
                 }
-            }1qa    \
+            }
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
                 conn.Open();
@@ -151,12 +172,44 @@ namespace Hospital_System
                     cmd.ExecuteNonQuery();
                 }
             }
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                string insert = "INSERT INTO record (illness, injury, allergy) VALUES (@illness, @injury, @allergy)";
+                using (SQLiteCommand cmd = new SQLiteCommand(insert, conn))
+                {
+                    cmd.Parameters.AddWithValue("@illness", "Flu");
+                    cmd.Parameters.AddWithValue("@injury", "");
+                    cmd.Parameters.AddWithValue("@allergy", "");
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                string insert = "INSERT INTO recordAllocation (patientID, doctorID) VALUES (@patientID, @doctorID)";
+                using (SQLiteCommand cmd = new SQLiteCommand(insert, conn))
+                {
+                    cmd.Parameters.AddWithValue("@patientID", "1");
+                    cmd.Parameters.AddWithValue("@recordID", "1");
+                    cmd.ExecuteNonQuery();
+                }
+            }
             */
         }
+
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void DoctorLoginButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form4 form4 = new Form4();
+            form4.ShowDialog();
+            this.Close();
         }
     }
 }

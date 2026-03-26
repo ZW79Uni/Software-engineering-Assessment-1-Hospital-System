@@ -39,6 +39,7 @@
             textBox3 = new TextBox();
             idTextBox = new RichTextBox();
             textBox4 = new TextBox();
+            DoctorLoginButton = new Button();
             SuspendLayout();
             // 
             // UsernamePassword
@@ -52,11 +53,11 @@
             // 
             // LoginButton
             // 
-            LoginButton.Location = new Point(166, 225);
+            LoginButton.Location = new Point(135, 224);
             LoginButton.Name = "LoginButton";
-            LoginButton.Size = new Size(85, 33);
+            LoginButton.Size = new Size(85, 39);
             LoginButton.TabIndex = 1;
-            LoginButton.Text = "LOGIN";
+            LoginButton.Text = "PATIENT LOGIN";
             LoginButton.UseVisualStyleBackColor = true;
             LoginButton.Click += LoginButton_Click;
             // 
@@ -105,7 +106,7 @@
             // 
             incorrectBox.BorderStyle = BorderStyle.None;
             incorrectBox.ForeColor = Color.Black;
-            incorrectBox.Location = new Point(108, 208);
+            incorrectBox.Location = new Point(123, 208);
             incorrectBox.Name = "incorrectBox";
             incorrectBox.ReadOnly = true;
             incorrectBox.Size = new Size(258, 16);
@@ -137,12 +138,23 @@
             textBox4.Text = "To devs we have a test user the log in is ID = 1 Usename = TS1! Password = password123!";
             textBox4.TextChanged += textBox4_TextChanged;
             // 
+            // DoctorLoginButton
+            // 
+            DoctorLoginButton.Location = new Point(253, 224);
+            DoctorLoginButton.Name = "DoctorLoginButton";
+            DoctorLoginButton.Size = new Size(85, 39);
+            DoctorLoginButton.TabIndex = 11;
+            DoctorLoginButton.Text = "DOCTOR LOGIN";
+            DoctorLoginButton.UseVisualStyleBackColor = true;
+            DoctorLoginButton.Click += DoctorLoginButton_Click;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             CausesValidation = false;
             ClientSize = new Size(535, 278);
+            Controls.Add(DoctorLoginButton);
             Controls.Add(textBox4);
             Controls.Add(idTextBox);
             Controls.Add(textBox3);
@@ -173,5 +185,6 @@
         private TextBox textBox3;
         private RichTextBox idTextBox;
         private TextBox textBox4;
+        private Button DoctorLoginButton;
     }
 }

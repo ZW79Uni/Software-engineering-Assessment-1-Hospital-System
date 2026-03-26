@@ -86,7 +86,7 @@
             timingFormButton.Name = "timingFormButton";
             timingFormButton.Size = new Size(116, 49);
             timingFormButton.TabIndex = 2;
-            timingFormButton.Text = "doctor timing and appoitment booking";
+            timingFormButton.Text = "doctor timing and appointment booking";
             timingFormButton.UseVisualStyleBackColor = true;
             timingFormButton.Click += timingFormButton_Click;
             // 

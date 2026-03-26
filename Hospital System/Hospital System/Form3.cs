@@ -20,7 +20,7 @@ namespace Hospital_System
         string connectionString = @"Data Source=Hospital Database System.db;Version=3;"; //Connects the program to the SQLite database
         int indexMonth = DateTime.Today.Month;
         int indexYear = DateTime.Today.Year;
-        string[] days = { "Monday", "Teusday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+        string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
         public Form3(string userName, int ID)
         { //BUG HERE: The functions when ran are supposed to show the the days of the week in the top cells but instead show on the bottom, when the next button is clicked this is fixed but need to figure out why its happening on start up
             InitializeComponent();
