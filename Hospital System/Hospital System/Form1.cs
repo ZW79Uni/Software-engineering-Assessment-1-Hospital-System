@@ -89,7 +89,19 @@ namespace Hospital_System
                         FOREIGN KEY(patientID) REFERENCES patient(patientID),
                         FOREIGN KEY(doctorID) REFERENCES doctor(doctorID)
                     );
-                    
+                    CREATE TABLE IF NOT EXISTS record (
+                        recordID INTEGER PRIMARY KEY AUTOINCREMENT,
+                        illness TEXT,
+                        injury TEXT,
+                        allergy TEXT
+                    );
+                    CREATE TABLE IF NOT EXISTS recordAllocation (
+                        recordAllocationID  INTEGER PRIMARY KEY AUTOINCREMENT,
+                        patientID INTEGER,
+                        recordID INTEGER,
+                        FOREIGN KEY(patientID) REFERENCES patient(patientID),
+                        FOREIGN KEY(recordID) REFERENCES record(recordID)
+                    );
                 ";
                 using (SQLiteCommand cmd = new SQLiteCommand(createTables, conn))
                 {
