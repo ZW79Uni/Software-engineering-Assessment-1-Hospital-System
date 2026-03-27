@@ -40,6 +40,7 @@
             idTextBox = new RichTextBox();
             textBox4 = new TextBox();
             DoctorLoginButton = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // UsernamePassword
@@ -148,12 +149,23 @@
             DoctorLoginButton.UseVisualStyleBackColor = true;
             DoctorLoginButton.Click += DoctorLoginButton_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(398, 232);
+            button1.Name = "button1";
+            button1.Size = new Size(108, 23);
+            button1.TabIndex = 12;
+            button1.Text = "Forgot Password?";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             CausesValidation = false;
             ClientSize = new Size(535, 278);
+            Controls.Add(button1);
             Controls.Add(DoctorLoginButton);
             Controls.Add(textBox4);
             Controls.Add(idTextBox);
@@ -186,5 +198,6 @@
         private RichTextBox idTextBox;
         private TextBox textBox4;
         private Button DoctorLoginButton;
+        private Button button1;
     }
 }

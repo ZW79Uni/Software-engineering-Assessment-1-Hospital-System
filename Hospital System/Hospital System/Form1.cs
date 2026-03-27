@@ -211,5 +211,13 @@ namespace Hospital_System
             form4.ShowDialog();
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form6 form6 = new Form6();
+            form6.ShowDialog();
+            this.Close();
+        }
     }
 }
