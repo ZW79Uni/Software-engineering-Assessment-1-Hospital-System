@@ -30,5 +30,13 @@ namespace Hospital_System
             form3.ShowDialog();
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form5 form5 = new Form5(userTag, uID);
+            form5.ShowDialog();
+            this.Close();
+        }
     }
 }

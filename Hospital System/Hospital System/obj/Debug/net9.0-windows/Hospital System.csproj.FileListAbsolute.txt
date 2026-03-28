@@ -112,3 +112,6 @@ C:\Users\runeb\OneDrive\Documents\Software ENG\Software-engineering-Assessment-1
 C:\Users\runeb\OneDrive\Documents\Software ENG\Software-engineering-Assessment-1-Hospital-System\Hospital System\Hospital System\obj\Debug\net9.0-windows\Hospital System.pdb
 C:\Users\runeb\OneDrive\Documents\Software ENG\Software-engineering-Assessment-1-Hospital-System\Hospital System\Hospital System\obj\Debug\net9.0-windows\Hospital System.genruntimeconfig.cache
 C:\Users\runeb\OneDrive\Documents\Software ENG\Software-engineering-Assessment-1-Hospital-System\Hospital System\Hospital System\obj\Debug\net9.0-windows\ref\Hospital System.dll
+C:\Users\ZCpU0\OneDrive\Documents\GitHub\Software engineering Assessment 1 Hospital System\Software-engineering-Assessment-1-Hospital-System\Hospital System\Hospital System\obj\Debug\net9.0-windows\Hospital_System.Form4.resources
+C:\Users\ZCpU0\OneDrive\Documents\GitHub\Software engineering Assessment 1 Hospital System\Software-engineering-Assessment-1-Hospital-System\Hospital System\Hospital System\obj\Debug\net9.0-windows\Hospital_System.Form5.resources
+C:\Users\ZCpU0\OneDrive\Documents\GitHub\Software engineering Assessment 1 Hospital System\Software-engineering-Assessment-1-Hospital-System\Hospital System\Hospital System\obj\Debug\net9.0-windows\Hospital_System.Form6.resources

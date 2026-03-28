@@ -195,6 +195,31 @@ namespace Hospital_System
                     cmd.ExecuteNonQuery();
                 }
             }
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+
+                string insert = "INSERT INTO record (illness, injury, allergy ) VALUES (@illness, @injury, @allergy)";
+                using (SQLiteCommand cmd = new SQLiteCommand(insert, conn))
+                {
+                    cmd.Parameters.AddWithValue("@illness", "Pneumonoultramicroscopicsilicovolcanoconiosis");
+                    cmd.Parameters.AddWithValue("@injury", "Broken leg");
+                    cmd.Parameters.AddWithValue("@allergy", "");
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+
+                string insert = "INSERT INTO recordAllocation (patientID, recordID ) VALUES (@patientID, @recordID)";
+                using (SQLiteCommand cmd = new SQLiteCommand(insert, conn))
+                {
+                    cmd.Parameters.AddWithValue("@patientID", "1");
+                    cmd.Parameters.AddWithValue("@recordID", "1");
+                    cmd.ExecuteNonQuery();
+                }
+            }
             */
         }
 

@@ -35,6 +35,7 @@
             toolStripMenuItem2 = new ToolStripMenuItem();
             toolStripMenuItem3 = new ToolStripMenuItem();
             timingFormButton = new Button();
+            button1 = new Button();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -82,7 +83,7 @@
             // 
             // timingFormButton
             // 
-            timingFormButton.Location = new Point(546, 251);
+            timingFormButton.Location = new Point(580, 251);
             timingFormButton.Name = "timingFormButton";
             timingFormButton.Size = new Size(116, 49);
             timingFormButton.TabIndex = 2;
@@ -90,11 +91,22 @@
             timingFormButton.UseVisualStyleBackColor = true;
             timingFormButton.Click += timingFormButton_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(161, 251);
+            button1.Name = "button1";
+            button1.Size = new Size(116, 49);
+            button1.TabIndex = 3;
+            button1.Text = "View Records";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
             Controls.Add(timingFormButton);
             Controls.Add(WelcomeTextBox);
             Controls.Add(menuStrip1);
@@ -116,5 +128,6 @@
         private ToolStripMenuItem toolStripMenuItem2;
         private ToolStripMenuItem toolStripMenuItem3;
         private Button timingFormButton;
+        private Button button1;
     }
 }
