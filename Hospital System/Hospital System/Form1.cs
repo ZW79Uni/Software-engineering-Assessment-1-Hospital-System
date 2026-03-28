@@ -37,31 +37,14 @@ namespace Hospital_System
                         form2.ShowDialog();
                         this.Close();
                     }
+                    
                     else
-                    {
-                        //not sure where to put this, but here's an attempt at doctor logins (thanks for the doc Zach, it helped! :D)
-                        string queryDoctor = "SELECT * FROM doctor WHERE @id = doctorID AND username = @username AND password = @password";
-                        //stuff here
-                        using (SQLiteCommand cmd2 = new SQLiteCommand(queryDoctor, conn))
-                        {
-                            cmd2.Parameters.AddWithValue("@id", idTextBox.Text);
-                            cmd2.Parameters.AddWithValue("@username", UsernameTextBox.Text);
-                            cmd2.Parameters.AddWithValue("@password", PasswordTextBox.Text);
-                            var result2 = cmd2.ExecuteScalar();
-                            if (result2 != null)
-                            {
-                                this.Hide();
-                                Form4 form4 = new Form4();
-                                form4.ShowDialog();
-                                this.Close();
-                            }
-                            else
-                            {
-                                //if patient and doctor details don't exist, display an error message
-                                incorrectBox.Text = "Incorrect username or password. Please try again.";
-                            }
-                        }
-                    }
+                     {
+                       //if patient and doctor details don't exist, display an error message
+                       incorrectBox.Text = "Incorrect username or password. Please try again.";
+                     }
+                        
+                    
                 }
             }
         }
@@ -202,9 +185,8 @@ namespace Hospital_System
                 string insert = "INSERT INTO record (illness, injury, allergy ) VALUES (@illness, @injury, @allergy)";
                 using (SQLiteCommand cmd = new SQLiteCommand(insert, conn))
                 {
-                    cmd.Parameters.AddWithValue("@illness", "Pneumonoultramicroscopicsilicovolcanoconiosis");
-                    cmd.Parameters.AddWithValue("@injury", "Broken leg");
-                    cmd.Parameters.AddWithValue("@allergy", "");
+                    
+                    cmd.Parameters.AddWithValue("@recordID", "1");
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -231,11 +213,36 @@ namespace Hospital_System
 
         private void DoctorLoginButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form4 form4 = new Form4();
-            form4.ShowDialog();
-            this.Close();
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                {
+                    string queryDoctor = "SELECT * FROM doctor WHERE @id = doctorID AND username = @username AND password = @password";
+                    using (SQLiteCommand cmd2 = new SQLiteCommand(queryDoctor, conn))
+                    {  
+                        cmd2.Parameters.AddWithValue("@id", idTextBox.Text);
+                        cmd2.Parameters.AddWithValue("@username", UsernameTextBox.Text);
+                        cmd2.Parameters.AddWithValue("@password", PasswordTextBox.Text);
+                        var result2 = cmd2.ExecuteScalar();
+                        // ZACH, THERE IS A BUG HERE. I dont think the username table exists. 
+                        if (result2 != null)
+                        {
+                            this.Hide();
+                            Form4 form4 = new Form4();
+                            form4.ShowDialog();
+                            this.Close();
+                        }
+                        else
+                        {
+                            //if patient and doctor details don't exist, display an error message
+                            incorrectBox.Text = "Incorrect username or password. Please try again.";
+                        }
+                    }
+                }
+            }
         }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {

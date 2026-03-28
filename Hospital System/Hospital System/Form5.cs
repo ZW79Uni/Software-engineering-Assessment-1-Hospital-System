@@ -162,7 +162,29 @@ namespace Hospital_System
                 }
 
             }
-
+            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            {
+                conn.Open();
+                using (SQLiteCommand cmd = new SQLiteCommand("PRAGMA foreign_keys = ON;", conn))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                string doctorName = @"SELECT * from doctor FULL JOIN appointment ON doctor.doctorID = appointment.doctorID LEFT JOIN patient ON appointment.patientID = patient.patientID WHERE patient.patientID = @uID"; 
+                using (SQLiteCommand cmd = new SQLiteCommand(doctorName, conn))
+                {
+                    cmd.Parameters.AddWithValue("@uID", uID);
+                    using (SQLiteDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            int rowIndex = dataGridView2.Rows.Add();
+                            dataGridView2.Rows[rowIndex].Cells[1].Value = dr["firstName"]; 
+                            dataGridView2.Rows[rowIndex].Cells[0].Value = dr["date"];
+                        }
+                    }
+                }
+                
+            }
 
         }
 
@@ -197,6 +219,19 @@ namespace Hospital_System
             Form2 form2 = new Form2(userTag, uID);
             form2.ShowDialog();
             this.Close();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form2 form2 = new Form2(userTag, uID);
+            form2.ShowDialog();
+            this.Close();
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
