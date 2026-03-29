@@ -123,7 +123,7 @@
             // 
             // mainMenuButton
             // 
-            mainMenuButton.Location = new Point(401, -2);
+            mainMenuButton.Location = new Point(2, -2);
             mainMenuButton.Name = "mainMenuButton";
             mainMenuButton.Size = new Size(402, 27);
             mainMenuButton.TabIndex = 9;
@@ -161,7 +161,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(0, -2);
+            button1.Location = new Point(401, -2);
             button1.Name = "button1";
             button1.Size = new Size(404, 27);
             button1.TabIndex = 13;

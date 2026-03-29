@@ -96,7 +96,7 @@ namespace Hospital_System
                 }
             }
             /*
-            using (SqliteConnection conn = new SqliteConnection(connectionString))
+            using (SqliteConnection conn = new SqliteConnection(connectionString)) //Sample data for testing
             {
                 conn.Open();
 
