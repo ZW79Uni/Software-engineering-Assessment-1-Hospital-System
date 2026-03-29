@@ -11,6 +11,7 @@ using SQLitePCL;
 using Microsoft.Data.Sqlite;
 //using System.Data.SQLite;
 using System.DirectoryServices.ActiveDirectory;
+using System.Diagnostics;
 
 namespace Hospital_System
 {
@@ -23,8 +24,10 @@ namespace Hospital_System
         int indexMonth = DateTime.Today.Month;
         int indexYear = DateTime.Today.Year;
         string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+
+        string selectedDate = string.Empty;
         public Form3(string userName, int ID)
-        { //BUG HERE: The functions when ran are supposed to show the the days of the week in the top cells but instead show on the bottom, when the next button is clicked this is fixed but need to figure out why its happening on start up
+        {
             InitializeComponent();
             populateDoctorDropDown();
             doctorAppoitmentStructure();
@@ -34,6 +37,8 @@ namespace Hospital_System
             userTag = userName;
 
             button1.Enabled = false;
+            timeDropDown.DropDownStyle = ComboBoxStyle.DropDownList;
+            doctorDropDown.DropDownStyle = ComboBoxStyle.DropDownList;
         }
         void populateAppoitmentDates(int indexM, int indexY) //creates the dates within the calender system
         {
@@ -163,7 +168,7 @@ namespace Hospital_System
                     {
                         // Add parameters for doctorID and date
                         cmd.Parameters.AddWithValue("@dID", doctorDropDown.SelectedIndex + 1);
-                        cmd.Parameters.AddWithValue("@date", datePicker.CurrentCell.Value);
+                        cmd.Parameters.AddWithValue("@date", selectedDate);
                         cmd.Parameters.AddWithValue("@time", timeSlot);
 
                         // Execute the query and get the count of existing appointments at that time
@@ -215,6 +220,7 @@ namespace Hospital_System
 
             // Valid date selected
             timeDropDown.Enabled = true;
+            selectedDate = datePicker.CurrentCell.Value + "/" + indexMonth + "/" + indexYear;
             populateTimeDropDown();
         }
 
@@ -293,7 +299,7 @@ namespace Hospital_System
                 {
                     cmd.Parameters.AddWithValue("@patientID", patientID);
                     cmd.Parameters.AddWithValue("@doctorID", doctorID);
-                    cmd.Parameters.AddWithValue("@date", selectedDate);
+                    cmd.Parameters.AddWithValue("@date", selectedDate + "/" + indexMonth + "/" + indexYear);
                     cmd.Parameters.AddWithValue("@time", selectedTime);
                     cmd.Parameters.AddWithValue("@note", appointmentNote);
 

@@ -35,7 +35,7 @@ namespace Hospital_System
             int IncrementingIllness = 1;
             bool AllergyCheck = false;
             bool InjuryCheck = false;
-            string[] Top = { "Type", "Description" };
+            string[] Top = { "Type", "Name" };
             string countQuery = "SELECT count(record.illness) from recordAllocation LEFT JOIN record ON (record.recordID = recordAllocation.recordID) LEFT JOIN patient ON (recordAllocation.patientID = patient.patientID) WHERE patient.patientID = @uID";
             string countQuery2 = "SELECT count(record.allergy) from recordAllocation LEFT JOIN record ON (record.recordID = recordAllocation.recordID) LEFT JOIN patient ON (recordAllocation.patientID = patient.patientID) WHERE patient.patientID = @uID";
             string countQuery3 = "SELECT count(record.injury) from recordAllocation LEFT JOIN record ON (record.recordID = recordAllocation.recordID) LEFT JOIN patient ON (recordAllocation.patientID = patient.patientID) WHERE patient.patientID = @uID";
@@ -164,7 +164,23 @@ namespace Hospital_System
                         }
                     }
                 }
-                dataGridView1.Enabled = false;
+            }
+            for (int i = dataGridView1.Rows.Count - 1; i >= 0; i--)
+            {
+                var row = dataGridView1.Rows[i];
+
+                // Only remove rows where the second column (Cell[1]) is null or empty
+                if (row.Cells[1].Value == null || string.IsNullOrWhiteSpace(row.Cells[1].Value.ToString()))
+                {
+                    // Skip the new row (not committed yet)
+                    if (row.IsNewRow)
+                    {
+                        continue;
+                    }
+
+                    // Remove the row if it's not a new row
+                    dataGridView1.Rows.RemoveAt(i);
+                }
             }
             using (SqliteConnection conn = new SqliteConnection(connectionString))
             {
@@ -173,7 +189,7 @@ namespace Hospital_System
                 {
                     cmd.ExecuteNonQuery();
                 }
-                string doctorName = @"SELECT * from doctor FULL JOIN appointment ON doctor.doctorID = appointment.doctorID LEFT JOIN patient ON appointment.patientID = patient.patientID WHERE patient.patientID = @uID";
+                string doctorName = @"SELECT doctor.firstName, appointment.date FROM doctor FULL JOIN appointment ON doctor.doctorID = appointment.doctorID LEFT JOIN patient ON appointment.patientID = patient.patientID WHERE patient.patientID = @uID";
                 using (SqliteCommand cmd = new SqliteCommand(doctorName, conn))
                 {
                     cmd.Parameters.AddWithValue("@uID", uID);
@@ -189,7 +205,6 @@ namespace Hospital_System
                 }
 
             }
-            dataGridView2.Enabled = false;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

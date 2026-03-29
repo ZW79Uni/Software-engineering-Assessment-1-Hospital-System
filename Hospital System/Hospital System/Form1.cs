@@ -169,7 +169,7 @@ namespace Hospital_System
                 string insert = "INSERT INTO record (illness, injury, allergy ) VALUES (@illness, @injury, @allergy)";
                 using (SqliteCommand cmd = new SqliteCommand(insert, conn))
                 {                    
-                    cmd.Parameters.AddWithValue("@illness", "Pneumonoultramicroscopicsilicovolcanoconiosis");
+                    cmd.Parameters.AddWithValue("@illness", "Common Cold");
                     cmd.Parameters.AddWithValue("@injury", "Broken leg");
                     cmd.Parameters.AddWithValue("@allergy", "");
                     cmd.ExecuteNonQuery();
@@ -179,11 +179,12 @@ namespace Hospital_System
             {
                 conn.Open();
 
-                string insert = "INSERT INTO recordAllocation (patientID, recordID ) VALUES (@patientID, @recordID)";
+                string insert = "INSERT INTO record (illness, injury, allergy ) VALUES (@illness, @injury, @allergy)";
                 using (SqliteCommand cmd = new SqliteCommand(insert, conn))
                 {
-                    cmd.Parameters.AddWithValue("@patientID", "1");
-                    cmd.Parameters.AddWithValue("@recordID", "1");
+                    cmd.Parameters.AddWithValue("@illness", "");
+                    cmd.Parameters.AddWithValue("@injury", "Broken Arm");
+                    cmd.Parameters.AddWithValue("@allergy", "Peanut");
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -195,13 +196,24 @@ namespace Hospital_System
                 using (SqliteCommand cmd = new SqliteCommand(insert, conn))
                 {
                     cmd.Parameters.AddWithValue("@patientID", "1");
-                    cmd.Parameters.AddWithValue("@recordID", "1");
+                    cmd.Parameters.AddWithValue("@recordID", "2");
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            using (SqliteConnection conn = new SqliteConnection(connectionString))
+            {
+                conn.Open();
+
+                string insert = "INSERT INTO recordAllocation (patientID, recordID ) VALUES (@patientID, @recordID)";
+                using (SqliteCommand cmd = new SqliteCommand(insert, conn))
+                {
+                    cmd.Parameters.AddWithValue("@patientID", "1");
+                    cmd.Parameters.AddWithValue("@recordID", "3");
                     cmd.ExecuteNonQuery();
                 }
             }
             */
         }
-
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
