@@ -41,11 +41,12 @@
             textBox4 = new TextBox();
             DoctorLoginButton = new Button();
             button1 = new Button();
+            richTextBox1 = new RichTextBox();
             SuspendLayout();
             // 
             // UsernamePassword
             // 
-            UsernamePassword.Location = new Point(67, 150);
+            UsernamePassword.Location = new Point(262, 222);
             UsernamePassword.Name = "UsernamePassword";
             UsernamePassword.ReadOnly = true;
             UsernamePassword.Size = new Size(62, 23);
@@ -54,9 +55,9 @@
             // 
             // LoginButton
             // 
-            LoginButton.Location = new Point(135, 224);
+            LoginButton.Location = new Point(103, 99);
             LoginButton.Name = "LoginButton";
-            LoginButton.Size = new Size(85, 39);
+            LoginButton.Size = new Size(311, 39);
             LoginButton.TabIndex = 1;
             LoginButton.Text = "PATIENT LOGIN";
             LoginButton.UseVisualStyleBackColor = true;
@@ -64,7 +65,7 @@
             // 
             // PasswordTitle
             // 
-            PasswordTitle.Location = new Point(67, 179);
+            PasswordTitle.Location = new Point(262, 279);
             PasswordTitle.Name = "PasswordTitle";
             PasswordTitle.ReadOnly = true;
             PasswordTitle.Size = new Size(62, 23);
@@ -73,7 +74,7 @@
             // 
             // UsernameTextBox
             // 
-            UsernameTextBox.Location = new Point(135, 150);
+            UsernameTextBox.Location = new Point(329, 222);
             UsernameTextBox.Name = "UsernameTextBox";
             UsernameTextBox.Size = new Size(203, 23);
             UsernameTextBox.TabIndex = 3;
@@ -82,7 +83,7 @@
             // 
             // PasswordTextBox
             // 
-            PasswordTextBox.Location = new Point(135, 179);
+            PasswordTextBox.Location = new Point(329, 279);
             PasswordTextBox.Name = "PasswordTextBox";
             PasswordTextBox.Size = new Size(203, 23);
             PasswordTextBox.TabIndex = 4;
@@ -107,7 +108,7 @@
             // 
             incorrectBox.BorderStyle = BorderStyle.None;
             incorrectBox.ForeColor = Color.Black;
-            incorrectBox.Location = new Point(123, 208);
+            incorrectBox.Location = new Point(307, 339);
             incorrectBox.Name = "incorrectBox";
             incorrectBox.ReadOnly = true;
             incorrectBox.Size = new Size(258, 16);
@@ -115,7 +116,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(67, 121);
+            textBox3.Location = new Point(261, 169);
             textBox3.Name = "textBox3";
             textBox3.ReadOnly = true;
             textBox3.Size = new Size(62, 23);
@@ -124,7 +125,7 @@
             // 
             // idTextBox
             // 
-            idTextBox.Location = new Point(135, 121);
+            idTextBox.Location = new Point(329, 169);
             idTextBox.Name = "idTextBox";
             idTextBox.Size = new Size(203, 23);
             idTextBox.TabIndex = 9;
@@ -132,7 +133,7 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(12, 70);
+            textBox4.Location = new Point(138, 70);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(520, 23);
             textBox4.TabIndex = 10;
@@ -141,9 +142,9 @@
             // 
             // DoctorLoginButton
             // 
-            DoctorLoginButton.Location = new Point(253, 224);
+            DoctorLoginButton.Location = new Point(412, 99);
             DoctorLoginButton.Name = "DoctorLoginButton";
-            DoctorLoginButton.Size = new Size(85, 39);
+            DoctorLoginButton.Size = new Size(279, 39);
             DoctorLoginButton.TabIndex = 11;
             DoctorLoginButton.Text = "DOCTOR LOGIN";
             DoctorLoginButton.UseVisualStyleBackColor = true;
@@ -151,7 +152,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(398, 232);
+            button1.Location = new Point(215, 310);
             button1.Name = "button1";
             button1.Size = new Size(108, 23);
             button1.TabIndex = 12;
@@ -159,12 +160,21 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(103, 99);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(588, 273);
+            richTextBox1.TabIndex = 13;
+            richTextBox1.Text = "";
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(0, 94, 184);
             CausesValidation = false;
-            ClientSize = new Size(535, 278);
+            ClientSize = new Size(800, 450);
             Controls.Add(button1);
             Controls.Add(DoctorLoginButton);
             Controls.Add(textBox4);
@@ -178,6 +188,7 @@
             Controls.Add(PasswordTitle);
             Controls.Add(LoginButton);
             Controls.Add(UsernamePassword);
+            Controls.Add(richTextBox1);
             Name = "Login";
             Text = "Form1";
             ResumeLayout(false);
@@ -199,5 +210,6 @@
         private TextBox textBox4;
         private Button DoctorLoginButton;
         private Button button1;
+        private RichTextBox richTextBox1;
     }
 }

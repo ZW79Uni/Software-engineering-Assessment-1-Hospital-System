@@ -105,6 +105,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(0, 94, 184);
             ClientSize = new Size(800, 450);
             Controls.Add(button1);
             Controls.Add(timingFormButton);

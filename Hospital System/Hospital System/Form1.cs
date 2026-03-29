@@ -20,6 +20,8 @@ namespace Hospital_System
             InitializeComponent();
             createTables();
             //encrypt();
+            textBox1.Hide();
+            textBox2.Hide();
         }
         string UsernameDisplay = String.Empty;
         string PasswordDisplay = String.Empty; //might have to encrypt this or something

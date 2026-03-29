@@ -56,16 +56,16 @@
             // datePicker
             // 
             datePicker.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            datePicker.Location = new Point(461, 64);
+            datePicker.Location = new Point(461, 87);
             datePicker.Name = "datePicker";
             datePicker.ScrollBars = ScrollBars.None;
-            datePicker.Size = new Size(308, 272);
+            datePicker.Size = new Size(308, 249);
             datePicker.TabIndex = 1;
             datePicker.CellContentClick += datePicker_CellContentClick;
             // 
             // previousMonth
             // 
-            previousMonth.Location = new Point(461, 40);
+            previousMonth.Location = new Point(463, 58);
             previousMonth.Name = "previousMonth";
             previousMonth.Size = new Size(138, 23);
             previousMonth.TabIndex = 2;
@@ -75,7 +75,7 @@
             // 
             // nextMonth
             // 
-            nextMonth.Location = new Point(631, 40);
+            nextMonth.Location = new Point(629, 58);
             nextMonth.Name = "nextMonth";
             nextMonth.Size = new Size(138, 23);
             nextMonth.TabIndex = 3;
@@ -109,12 +109,14 @@
             // 
             // bookAppoitment
             // 
-            bookAppoitment.Location = new Point(563, 397);
+            bookAppoitment.BackColor = Color.FromArgb(118, 134, 146);
+            bookAppoitment.FlatStyle = FlatStyle.Popup;
+            bookAppoitment.Location = new Point(524, 397);
             bookAppoitment.Name = "bookAppoitment";
-            bookAppoitment.Size = new Size(97, 41);
+            bookAppoitment.Size = new Size(190, 41);
             bookAppoitment.TabIndex = 7;
-            bookAppoitment.Text = "Book Appointment";
-            bookAppoitment.UseVisualStyleBackColor = true;
+            bookAppoitment.Text = "C O N F I R M";
+            bookAppoitment.UseVisualStyleBackColor = false;
             bookAppoitment.Click += bookAppoitment_Click;
             // 
             // appointmentNoteTextBox
@@ -146,7 +148,7 @@
             // 
             // richTextBox1
             // 
-            richTextBox1.Location = new Point(54, 60);
+            richTextBox1.Location = new Point(54, 70);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.Size = new Size(304, 302);
             richTextBox1.TabIndex = 11;
@@ -156,9 +158,9 @@
             // 
             richTextBox2.BackColor = Color.FromArgb(35, 31, 32);
             richTextBox2.BorderStyle = BorderStyle.None;
-            richTextBox2.Location = new Point(452, 35);
+            richTextBox2.Location = new Point(461, 50);
             richTextBox2.Name = "richTextBox2";
-            richTextBox2.Size = new Size(327, 356);
+            richTextBox2.Size = new Size(308, 335);
             richTextBox2.TabIndex = 12;
             richTextBox2.Text = "";
             // 
