@@ -91,7 +91,7 @@
             Controls.Add(appointmentTable);
             Controls.Add(WelcomeTextBox);
             Name = "Form4";
-            Text = "Doctor Portal";
+            Text = "Hosptial System";
             ((System.ComponentModel.ISupportInitialize)appointmentTable).EndInit();
             ResumeLayout(false);
         }

@@ -143,7 +143,7 @@
             Controls.Add(label1);
             Controls.Add(dataGridView1);
             Name = "Form5";
-            Text = "Form5";
+            Text = "Hosptial System";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);

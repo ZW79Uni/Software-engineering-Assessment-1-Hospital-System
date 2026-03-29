@@ -208,7 +208,7 @@
             Controls.Add(richTextBox1);
             Controls.Add(richTextBox2);
             Name = "Form3";
-            Text = "Form3";
+            Text = "Hosptial System";
             ((System.ComponentModel.ISupportInitialize)datePicker).EndInit();
             ResumeLayout(false);
             PerformLayout();

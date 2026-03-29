@@ -121,7 +121,7 @@
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Name = "Form6";
-            Text = "Form6";
+            Text = "Hosptial System";
             ResumeLayout(false);
             PerformLayout();
         }

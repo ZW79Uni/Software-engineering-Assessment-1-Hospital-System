@@ -202,7 +202,7 @@
             Controls.Add(UsernamePassword);
             Controls.Add(richTextBox1);
             Name = "Login";
-            Text = "Form1";
+            Text = "Hosptial System";
             ResumeLayout(false);
             PerformLayout();
         }
