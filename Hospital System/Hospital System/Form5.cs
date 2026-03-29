@@ -5,7 +5,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Data.SqlClient;
-using System.Data.SQLite;
+using SQLitePCL;
+using Microsoft.Data.Sqlite;
+//using System.Data.SQLite;
 using System.DirectoryServices.ActiveDirectory;
 using System.Drawing;
 using System.Linq;
@@ -21,7 +23,7 @@ namespace Hospital_System
     {
         int uID;
         string userTag;
-        string connectionString = @"Data Source=Hospital Database System.db;Version=3;";
+        string connectionString = @"Data Source=Hospital Database System_encrypted.db;Password=a3lKC467MQsD2d3F;";//Connects the program to the SQLite database
 
         public Form5(string Username, int ID)
         {
@@ -39,10 +41,10 @@ namespace Hospital_System
             string selectIllness = "SELECT record.illness from recordAllocation LEFT JOIN record ON(record.recordID = recordAllocation.recordID) LEFT JOIN patient ON(recordAllocation.patientID = patient.patientID) WHERE patient.patientID = @uID AND record.recordID = @i";
             string selectAllergy = "SELECT record.allergy from recordAllocation LEFT JOIN record ON(record.recordID = recordAllocation.recordID) LEFT JOIN patient ON(recordAllocation.patientID = patient.patientID) WHERE patient.patientID = @uID AND record.recordID = @i";
             string selectInjury = "SELECT record.injury from recordAllocation LEFT JOIN record ON(record.recordID = recordAllocation.recordID) LEFT JOIN patient ON(recordAllocation.patientID = patient.patientID) WHERE patient.patientID = @uID AND record.recordID = @i";
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using (SqliteConnection conn = new SqliteConnection(connectionString))
             {
                 conn.Open();
-                using (SQLiteCommand FIRSTQUERY = new SQLiteCommand(countQuery, conn))
+                using (SqliteCommand FIRSTQUERY = new SqliteCommand(countQuery, conn))
                 {
                     FIRSTQUERY.Parameters.AddWithValue("@uID", uID);
                     var amountOfRow = FIRSTQUERY.ExecuteScalar().ToString();
@@ -51,14 +53,14 @@ namespace Hospital_System
                     int amountOfIllness = (Convert.ToInt32(amountOfRow));
 
 
-                    using (SQLiteCommand SECONDQUERY = new SQLiteCommand(countQuery2, conn))
+                    using (SqliteCommand SECONDQUERY = new SqliteCommand(countQuery2, conn))
                     {
                         SECONDQUERY.Parameters.AddWithValue("@uID", uID);
                         amountOfRow = SECONDQUERY.ExecuteScalar().ToString();
                         totalRow = totalRow + (Convert.ToInt32(amountOfRow));
                         int amountOfAllergy = (Convert.ToInt32(amountOfRow));
                         int IncrementAllergy = amountOfAllergy;
-                        using (SQLiteCommand THIRDQUERY = new SQLiteCommand(countQuery3, conn))
+                        using (SqliteCommand THIRDQUERY = new SqliteCommand(countQuery3, conn))
                         {
                             THIRDQUERY.Parameters.AddWithValue("@uID", uID);
                             amountOfRow = THIRDQUERY.ExecuteScalar().ToString();
@@ -81,7 +83,7 @@ namespace Hospital_System
                                 {
                                     if (IncrementIllness != amountOfIllness)
                                     {
-                                        using (SQLiteCommand cmd = new SQLiteCommand(selectIllness, conn))
+                                        using (SqliteCommand cmd = new SqliteCommand(selectIllness, conn))
                                         {
                                             cmd.Parameters.AddWithValue("@uID", uID);
                                             cmd.Parameters.AddWithValue("@i", IncrementingIllness);
@@ -103,7 +105,7 @@ namespace Hospital_System
                                     {
                                         if (IncrementAllergy != amountOfAllergy)
                                         {
-                                            using (SQLiteCommand ALLERGY = new SQLiteCommand(selectAllergy, conn))
+                                            using (SqliteCommand ALLERGY = new SqliteCommand(selectAllergy, conn))
                                             {
                                                 ALLERGY.Parameters.AddWithValue("@uID", uID);
                                                 ALLERGY.Parameters.AddWithValue("@i", IncrementingIllness);
@@ -129,7 +131,7 @@ namespace Hospital_System
                                     {
                                         if (IncrementInjury != amountOfInjury)
                                         {
-                                            using (SQLiteCommand INJURY = new SQLiteCommand(selectInjury, conn))
+                                            using (SqliteCommand INJURY = new SqliteCommand(selectInjury, conn))
                                             {
                                                 INJURY.Parameters.AddWithValue("@uID", uID);
                                                 INJURY.Parameters.AddWithValue("@i", IncrementingIllness);
@@ -162,18 +164,18 @@ namespace Hospital_System
                 }
 
             }
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using (SqliteConnection conn = new SqliteConnection(connectionString))
             {
                 conn.Open();
-                using (SQLiteCommand cmd = new SQLiteCommand("PRAGMA foreign_keys = ON;", conn))
+                using (SqliteCommand cmd = new SqliteCommand("PRAGMA foreign_keys = ON;", conn))
                 {
                     cmd.ExecuteNonQuery();
                 }
                 string doctorName = @"SELECT * from doctor FULL JOIN appointment ON doctor.doctorID = appointment.doctorID LEFT JOIN patient ON appointment.patientID = patient.patientID WHERE patient.patientID = @uID"; 
-                using (SQLiteCommand cmd = new SQLiteCommand(doctorName, conn))
+                using (SqliteCommand cmd = new SqliteCommand(doctorName, conn))
                 {
                     cmd.Parameters.AddWithValue("@uID", uID);
-                    using (SQLiteDataReader dr = cmd.ExecuteReader())
+                    using (SqliteDataReader dr = cmd.ExecuteReader())
                     {
                         while (dr.Read())
                         {

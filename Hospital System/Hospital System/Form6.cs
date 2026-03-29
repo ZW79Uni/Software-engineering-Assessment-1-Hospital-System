@@ -7,14 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SQLite;
+using SQLitePCL;
+using Microsoft.Data.Sqlite;
+//using System.Data.SQLite;
 
 namespace Hospital_System
 {
     public partial class Form6 : Form
     {
         //Connects the program to the SQLite database
-        string connectionString = @"Data Source=Hospital Database System.db;Version=3;";
+        string connectionString = @"Data Source=Hospital Database System_encrypted.db;Password=a3lKC467MQsD2d3F;";//Connects the program to the SQLite database
 
         public Form6()
         {
@@ -23,11 +25,11 @@ namespace Hospital_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using (SqliteConnection conn = new SqliteConnection(connectionString))
             {
                 conn.Open();
                 string query = "SELECT * FROM patient WHERE @id = patientID AND username = @username";
-                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+                using (SqliteCommand cmd = new SqliteCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@id", textBox1.Text);
                     cmd.Parameters.AddWithValue("@username", textBox2.Text);
@@ -36,7 +38,7 @@ namespace Hospital_System
                     if (result != null)
                     {
                         string updateQuery = "UPDATE patient set password = @password WHERE @id = patientID";
-                        using (SQLiteCommand cmd2 = new SQLiteCommand(updateQuery, conn))
+                        using (SqliteCommand cmd2 = new SqliteCommand(updateQuery, conn))
                         {
                             cmd2.Parameters.AddWithValue("@password", textBox3.Text);
                             cmd2.Parameters.AddWithValue("@id", textBox1.Text);

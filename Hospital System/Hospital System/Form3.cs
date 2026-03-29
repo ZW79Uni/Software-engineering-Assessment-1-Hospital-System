@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SQLite;
+using SQLitePCL;
+using Microsoft.Data.Sqlite;
+//using System.Data.SQLite;
 using System.DirectoryServices.ActiveDirectory;
 
 namespace Hospital_System
@@ -17,7 +19,7 @@ namespace Hospital_System
         int uID;
         string userTag;
 
-        string connectionString = @"Data Source=Hospital Database System.db;Version=3;"; //Connects the program to the SQLite database
+        string connectionString = @"Data Source=Hospital Database System_encrypted.db;Password=a3lKC467MQsD2d3F;"; //Connects the program to the SQLite database
         int indexMonth = DateTime.Today.Month;
         int indexYear = DateTime.Today.Year;
         string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
@@ -112,15 +114,15 @@ namespace Hospital_System
         }
         void populateDoctorDropDown() //Adds the doctors from the database to the drop down menu
         {
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using (SqliteConnection conn = new SqliteConnection(connectionString))
             {
                 conn.Open();
 
                 string getDoctors = "SELECT doctorID, firstName, lastName FROM doctor";
 
-                using (SQLiteCommand cmd = new SQLiteCommand(getDoctors, conn))
+                using (SqliteCommand cmd = new SqliteCommand(getDoctors, conn))
                 {
-                    using (SQLiteDataReader dr = cmd.ExecuteReader())
+                    using (SqliteDataReader dr = cmd.ExecuteReader())
                     {
                         doctorDropDown.Items.Clear();
                         while (dr.Read())
@@ -139,7 +141,7 @@ namespace Hospital_System
             int min = 0;
             timeDropDown.Items.Clear();
 
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using (SqliteConnection conn = new SqliteConnection(connectionString))
             {
                 conn.Open();
 
@@ -151,7 +153,7 @@ namespace Hospital_System
                     // Build the time slot for the loop
                     string timeSlot = $"{hour}:{min:D2}";
 
-                    using (SQLiteCommand cmd = new SQLiteCommand(checkTime, conn))
+                    using (SqliteCommand cmd = new SqliteCommand(checkTime, conn))
                     {
                         // Add parameters for doctorID and date
                         cmd.Parameters.AddWithValue("@dID", doctorDropDown.SelectedIndex + 1);
@@ -276,12 +278,12 @@ namespace Hospital_System
             int patientID = uID; //gets the patient ID (carried over from login form)
 
 
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString)) //insert query
+            using (SqliteConnection conn = new SqliteConnection(connectionString)) //insert query
             {
                 conn.Open();
                 string insertQuery = "INSERT INTO appointment (patientID, doctorID, date, time, appointmentNote) VALUES (@patientID, @doctorID, @date, @time, @note)";
 
-                using (SQLiteCommand cmd = new SQLiteCommand(insertQuery, conn))
+                using (SqliteCommand cmd = new SqliteCommand(insertQuery, conn))
                 {
                     cmd.Parameters.AddWithValue("@patientID", patientID);
                     cmd.Parameters.AddWithValue("@doctorID", doctorID);

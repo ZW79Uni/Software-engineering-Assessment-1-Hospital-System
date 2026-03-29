@@ -7,13 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SQLite;
+using SQLitePCL;
+using Microsoft.Data.Sqlite;
+//using System.Data.SQLite;
 
 namespace Hospital_System
 {
     public partial class Form4 : Form
     {
-        string connectionString = @"Data Source=Hospital Database System.db;Version=3;"; //Connects the program to the SQLite database
+        string connectionString = @"Data Source=Hospital Database System_encrypted.db;Password=a3lKC467MQsD2d3F;";//Connects the program to the SQLite database //Connects the program to the SQLite database
         int noOfAppointments = 0;
         int count = 0;
         public Form4()
@@ -26,18 +28,18 @@ namespace Hospital_System
         private void AppointmentTable_AddAppointments()
         {
             //appointmentTable.Rows.RemoveAt(appointmentTable.SelectedRows[1].Index);
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using (SqliteConnection conn = new SqliteConnection(connectionString))
             {
                 conn.Open();
-                using (SQLiteCommand cmd = new SQLiteCommand("PRAGMA foreign_keys = ON;", conn))
+                using (SqliteCommand cmd = new SqliteCommand("PRAGMA foreign_keys = ON;", conn))
                 {
                     cmd.ExecuteNonQuery();
                 }
                 string query = @"SELECT * from appointment INNER JOIN patient ON appointment.patientID = patient.patientID WHERE doctorID = @doctorID"; //check this works when the doctor form is fixed
-                using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
+                using (SqliteCommand cmd = new SqliteCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@doctorID", 1);
-                    using (SQLiteDataReader dr = cmd.ExecuteReader())
+                    using (SqliteDataReader dr = cmd.ExecuteReader())
                     {
                         while (dr.Read())
                         {

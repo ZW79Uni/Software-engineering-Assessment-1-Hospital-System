@@ -41,7 +41,7 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "Microsoft.Data.Sqlite.Core/10.0.4": {
+      "Microsoft.Data.Sqlite.Core/10.0.5": {
         "type": "package",
         "dependencies": {
           "SQLitePCLRaw.core": "2.1.11"
@@ -168,6 +168,19 @@
           }
         }
       },
+      "SQLitePCLRaw.bundle_e_sqlcipher/2.1.11": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.lib.e_sqlcipher": "2.1.11",
+          "SQLitePCLRaw.provider.e_sqlcipher": "2.1.11"
+        },
+        "compile": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
+        }
+      },
       "SQLitePCLRaw.core/3.0.2": {
         "type": "package",
         "dependencies": {
@@ -178,6 +191,124 @@
         },
         "runtime": {
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
+        }
+      },
+      "SQLitePCLRaw.lib.e_sqlcipher/2.1.11": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/_._": {}
+        },
+        "build": {
+          "buildTransitive/net8.0/SQLitePCLRaw.lib.e_sqlcipher.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/browser-wasm/nativeassets/net9.0/e_sqlcipher.a": {
+            "assetType": "native",
+            "rid": "browser-wasm"
+          },
+          "runtimes/linux-arm/native/libe_sqlcipher.so": {
+            "assetType": "native",
+            "rid": "linux-arm"
+          },
+          "runtimes/linux-arm64/native/libe_sqlcipher.so": {
+            "assetType": "native",
+            "rid": "linux-arm64"
+          },
+          "runtimes/linux-armel/native/libe_sqlcipher.so": {
+            "assetType": "native",
+            "rid": "linux-armel"
+          },
+          "runtimes/linux-mips64/native/libe_sqlcipher.so": {
+            "assetType": "native",
+            "rid": "linux-mips64"
+          },
+          "runtimes/linux-musl-arm/native/libe_sqlcipher.so": {
+            "assetType": "native",
+            "rid": "linux-musl-arm"
+          },
+          "runtimes/linux-musl-arm64/native/libe_sqlcipher.so": {
+            "assetType": "native",
+            "rid": "linux-musl-arm64"
+          },
+          "runtimes/linux-musl-riscv64/native/libe_sqlcipher.so": {
+            "assetType": "native",
+            "rid": "linux-musl-riscv64"
+          },
+          "runtimes/linux-musl-s390x/native/libe_sqlcipher.so": {
+            "assetType": "native",
+            "rid": "linux-musl-s390x"
+          },
+          "runtimes/linux-musl-x64/native/libe_sqlcipher.so": {
+            "assetType": "native",
+            "rid": "linux-musl-x64"
+          },
+          "runtimes/linux-ppc64le/native/libe_sqlcipher.so": {
+            "assetType": "native",
+            "rid": "linux-ppc64le"
+          },
+          "runtimes/linux-riscv64/native/libe_sqlcipher.so": {
+            "assetType": "native",
+            "rid": "linux-riscv64"
+          },
+          "runtimes/linux-s390x/native/libe_sqlcipher.so": {
+            "assetType": "native",
+            "rid": "linux-s390x"
+          },
+          "runtimes/linux-x64/native/libe_sqlcipher.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/linux-x86/native/libe_sqlcipher.so": {
+            "assetType": "native",
+            "rid": "linux-x86"
+          },
+          "runtimes/maccatalyst-arm64/native/libe_sqlcipher.dylib": {
+            "assetType": "native",
+            "rid": "maccatalyst-arm64"
+          },
+          "runtimes/maccatalyst-x64/native/libe_sqlcipher.dylib": {
+            "assetType": "native",
+            "rid": "maccatalyst-x64"
+          },
+          "runtimes/osx-arm64/native/libe_sqlcipher.dylib": {
+            "assetType": "native",
+            "rid": "osx-arm64"
+          },
+          "runtimes/osx-x64/native/libe_sqlcipher.dylib": {
+            "assetType": "native",
+            "rid": "osx-x64"
+          },
+          "runtimes/win-arm/native/e_sqlcipher.dll": {
+            "assetType": "native",
+            "rid": "win-arm"
+          },
+          "runtimes/win-arm64/native/e_sqlcipher.dll": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-x64/native/e_sqlcipher.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/e_sqlcipher.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
+      },
+      "SQLitePCLRaw.provider.e_sqlcipher/2.1.11": {
+        "type": "package",
+        "dependencies": {
+          "SQLitePCLRaw.core": "2.1.11"
+        },
+        "compile": {
+          "lib/net6.0-windows7.0/SQLitePCLRaw.provider.e_sqlcipher.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/SQLitePCLRaw.provider.e_sqlcipher.dll": {}
         }
       },
       "Stub.System.Data.SQLite.Core.NetFramework/1.0.119": {
@@ -273,7 +404,7 @@
           }
         }
       },
-      "System.Data.SQLite/2.0.2": {
+      "System.Data.SQLite/2.0.3": {
         "type": "package",
         "compile": {
           "lib/netstandard2.1/System.Data.SQLite.dll": {}
@@ -282,10 +413,10 @@
           "lib/netstandard2.1/System.Data.SQLite.dll": {}
         }
       },
-      "System.Data.SQLite.EF6/2.0.2": {
+      "System.Data.SQLite.EF6/2.0.3": {
         "type": "package",
         "dependencies": {
-          "System.Data.SQLite": "2.0.2",
+          "System.Data.SQLite": "2.0.3",
           "entityframework": "6.5.1"
         },
         "compile": {
@@ -576,10 +707,10 @@
         "version.txt"
       ]
     },
-    "Microsoft.Data.Sqlite.Core/10.0.4": {
-      "sha512": "UkmpN2pDkrtVLh+ypRDCbBij9mhPqOPzvHI625rf+VeT3FHnBwBjAY7XgjK8rGDI74fDx7C1SSIf2OAaAX4g2A==",
+    "Microsoft.Data.Sqlite.Core/10.0.5": {
+      "sha512": "jFYXnh7s0RShCw6Vkf+ReGCw+mVi7ISg1YaEzYCJcXnUifmbW+aqvCsRJuSRj2ZuQ+oqetpjxlZtbpMmk5FKqQ==",
       "type": "package",
-      "path": "microsoft.data.sqlite.core/10.0.4",
+      "path": "microsoft.data.sqlite.core/10.0.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -589,7 +720,7 @@
         "lib/net8.0/Microsoft.Data.Sqlite.xml",
         "lib/netstandard2.0/Microsoft.Data.Sqlite.dll",
         "lib/netstandard2.0/Microsoft.Data.Sqlite.xml",
-        "microsoft.data.sqlite.core.10.0.4.nupkg.sha512",
+        "microsoft.data.sqlite.core.10.0.5.nupkg.sha512",
         "microsoft.data.sqlite.core.nuspec"
       ]
     },
@@ -753,6 +884,25 @@
         "sqlite.nuspec"
       ]
     },
+    "SQLitePCLRaw.bundle_e_sqlcipher/2.1.11": {
+      "sha512": "NFuxa/rD3Ah88jbFOgsoUjuWcLiBkj3iqgO2gJXola9NtjtCTRI3HMQtVjQDnrhCvdBOAJ4RqbwnqoEMLht8GQ==",
+      "type": "package",
+      "path": "sqlitepclraw.bundle_e_sqlcipher/2.1.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid90/SQLitePCLRaw.batteries_v2.dll",
+        "lib/net461/SQLitePCLRaw.batteries_v2.dll",
+        "lib/net6.0-android31.0/SQLitePCLRaw.batteries_v2.dll",
+        "lib/net6.0-android31.0/SQLitePCLRaw.batteries_v2.xml",
+        "lib/net6.0-ios14.0/SQLitePCLRaw.batteries_v2.dll",
+        "lib/net6.0-ios14.2/SQLitePCLRaw.batteries_v2.dll",
+        "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll",
+        "lib/xamarinios10/SQLitePCLRaw.batteries_v2.dll",
+        "sqlitepclraw.bundle_e_sqlcipher.2.1.11.nupkg.sha512",
+        "sqlitepclraw.bundle_e_sqlcipher.nuspec"
+      ]
+    },
     "SQLitePCLRaw.core/3.0.2": {
       "sha512": "tnbRf0muOOSJK1RLCfyYK13jynFScgL4xMj7yC3oy8lrrGKXTKmOoWjfdV+cFfBRdppm4qST31hvp8ihgIgvMQ==",
       "type": "package",
@@ -764,6 +914,67 @@
         "lib/netstandard2.0/SQLitePCLRaw.core.dll",
         "sqlitepclraw.core.3.0.2.nupkg.sha512",
         "sqlitepclraw.core.nuspec"
+      ]
+    },
+    "SQLitePCLRaw.lib.e_sqlcipher/2.1.11": {
+      "sha512": "Cg6UPeDbH8jyaOs1vqXYIgeewH0wYrBnmbC5Ml3GYBo+GKzNmyxrWSO52JV68bfB7Addt/PZLMekJV1RH2ftWQ==",
+      "type": "package",
+      "path": "sqlitepclraw.lib.e_sqlcipher/2.1.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "buildTransitive/net461/SQLitePCLRaw.lib.e_sqlcipher.targets",
+        "buildTransitive/net6.0/SQLitePCLRaw.lib.e_sqlcipher.targets",
+        "buildTransitive/net7.0/SQLitePCLRaw.lib.e_sqlcipher.targets",
+        "buildTransitive/net8.0/SQLitePCLRaw.lib.e_sqlcipher.targets",
+        "lib/net461/_._",
+        "lib/netstandard2.0/_._",
+        "runtimes/browser-wasm/nativeassets/net6.0/e_sqlcipher.a",
+        "runtimes/browser-wasm/nativeassets/net7.0/e_sqlcipher.a",
+        "runtimes/browser-wasm/nativeassets/net8.0/e_sqlcipher.a",
+        "runtimes/browser-wasm/nativeassets/net9.0/e_sqlcipher.a",
+        "runtimes/linux-arm/native/libe_sqlcipher.so",
+        "runtimes/linux-arm64/native/libe_sqlcipher.so",
+        "runtimes/linux-armel/native/libe_sqlcipher.so",
+        "runtimes/linux-mips64/native/libe_sqlcipher.so",
+        "runtimes/linux-musl-arm/native/libe_sqlcipher.so",
+        "runtimes/linux-musl-arm64/native/libe_sqlcipher.so",
+        "runtimes/linux-musl-riscv64/native/libe_sqlcipher.so",
+        "runtimes/linux-musl-s390x/native/libe_sqlcipher.so",
+        "runtimes/linux-musl-x64/native/libe_sqlcipher.so",
+        "runtimes/linux-ppc64le/native/libe_sqlcipher.so",
+        "runtimes/linux-riscv64/native/libe_sqlcipher.so",
+        "runtimes/linux-s390x/native/libe_sqlcipher.so",
+        "runtimes/linux-x64/native/libe_sqlcipher.so",
+        "runtimes/linux-x86/native/libe_sqlcipher.so",
+        "runtimes/maccatalyst-arm64/native/libe_sqlcipher.dylib",
+        "runtimes/maccatalyst-x64/native/libe_sqlcipher.dylib",
+        "runtimes/osx-arm64/native/libe_sqlcipher.dylib",
+        "runtimes/osx-x64/native/libe_sqlcipher.dylib",
+        "runtimes/win-arm/native/e_sqlcipher.dll",
+        "runtimes/win-arm64/native/e_sqlcipher.dll",
+        "runtimes/win-x64/native/e_sqlcipher.dll",
+        "runtimes/win-x86/native/e_sqlcipher.dll",
+        "runtimes/win10-arm/nativeassets/uap10.0/e_sqlcipher.dll",
+        "runtimes/win10-arm64/nativeassets/uap10.0/e_sqlcipher.dll",
+        "runtimes/win10-x64/nativeassets/uap10.0/e_sqlcipher.dll",
+        "runtimes/win10-x86/nativeassets/uap10.0/e_sqlcipher.dll",
+        "sqlitepclraw.lib.e_sqlcipher.2.1.11.nupkg.sha512",
+        "sqlitepclraw.lib.e_sqlcipher.nuspec"
+      ]
+    },
+    "SQLitePCLRaw.provider.e_sqlcipher/2.1.11": {
+      "sha512": "5L7YXWtPzKYHeXBHmj63QsHbLQmy0SYvhQp3xWA2yzSq1SvlnGFViveLfUDr/GEmePrqzXQ9tOJG9iQnFspfBA==",
+      "type": "package",
+      "path": "sqlitepclraw.provider.e_sqlcipher/2.1.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0-windows7.0/SQLitePCLRaw.provider.e_sqlcipher.dll",
+        "lib/net6.0/SQLitePCLRaw.provider.e_sqlcipher.dll",
+        "lib/netstandard2.0/SQLitePCLRaw.provider.e_sqlcipher.dll",
+        "sqlitepclraw.provider.e_sqlcipher.2.1.11.nupkg.sha512",
+        "sqlitepclraw.provider.e_sqlcipher.nuspec"
       ]
     },
     "Stub.System.Data.SQLite.Core.NetFramework/1.0.119": {
@@ -1036,30 +1247,30 @@
         "version.txt"
       ]
     },
-    "System.Data.SQLite/2.0.2": {
-      "sha512": "yAwxkraZf1PazyLg1sqMAlh4KEtaa2L8zieLicd9oWBybrb3SoPph+WVIyUTFWwtTVhNX/jNsDew6tbB8bw2xQ==",
+    "System.Data.SQLite/2.0.3": {
+      "sha512": "5I9dVqmHp1v0dhco21btIRkUE47zHSy4t6bRLwIO6nGZ1mxGIL1f1yp1zWI/AAZFfdUz7n6RrH1hyi/6EhlIeQ==",
       "type": "package",
-      "path": "system.data.sqlite/2.0.2",
+      "path": "system.data.sqlite/2.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net471/System.Data.SQLite.dll",
         "lib/netstandard2.0/System.Data.SQLite.dll",
         "lib/netstandard2.1/System.Data.SQLite.dll",
-        "system.data.sqlite.2.0.2.nupkg.sha512",
+        "system.data.sqlite.2.0.3.nupkg.sha512",
         "system.data.sqlite.nuspec"
       ]
     },
-    "System.Data.SQLite.EF6/2.0.2": {
-      "sha512": "g6GCDa5wkD8S0axhVp3rqciEFnEPIBaRladVjxrqVdyhGgFeiKL1FhThoPoHUw6nBIHZuQxZOVx0gyU1LwVIjA==",
+    "System.Data.SQLite.EF6/2.0.3": {
+      "sha512": "hpMeeL0aeNXykuOhGCJXx/bnjjB3uVnAMDl0F8ZLfR+ltwlRE2/4SZrcdY30hkBwnRlqQArT38A6NEojlfwhSA==",
       "type": "package",
-      "path": "system.data.sqlite.ef6/2.0.2",
+      "path": "system.data.sqlite.ef6/2.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net471/System.Data.SQLite.EF6.dll",
         "lib/netstandard2.1/System.Data.SQLite.EF6.dll",
-        "system.data.sqlite.ef6.2.0.2.nupkg.sha512",
+        "system.data.sqlite.ef6.2.0.3.nupkg.sha512",
         "system.data.sqlite.ef6.nuspec"
       ]
     },
@@ -1296,31 +1507,32 @@
   },
   "projectFileDependencyGroups": {
     "net9.0-windows7.0": [
-      "Microsoft.Data.Sqlite.Core >= 10.0.4",
+      "Microsoft.Data.Sqlite.Core >= 10.0.5",
       "SQLite >= 3.13.0",
+      "SQLitePCLRaw.bundle_e_sqlcipher >= 2.1.11",
       "SQLitePCLRaw.core >= 3.0.2",
       "Stub.System.Data.SQLite.Core.NetFramework >= 1.0.119",
-      "System.Data.SQLite.EF6 >= 2.0.2"
+      "System.Data.SQLite.EF6 >= 2.0.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\NatHa\\.nuget\\packages\\": {},
+    "C:\\Users\\ZCpU0\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\NatHa\\source\\repos\\Hospital again\\Hospital System\\Hospital System\\Hospital System.csproj",
+      "projectUniqueName": "C:\\Users\\ZCpU0\\OneDrive\\Documents\\GitHub\\Software engineering Assessment 1 Hospital System\\Software-engineering-Assessment-1-Hospital-System\\Hospital System\\Hospital System\\Hospital System.csproj",
       "projectName": "Hospital System",
-      "projectPath": "C:\\Users\\NatHa\\source\\repos\\Hospital again\\Hospital System\\Hospital System\\Hospital System.csproj",
-      "packagesPath": "C:\\Users\\NatHa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\NatHa\\source\\repos\\Hospital again\\Hospital System\\Hospital System\\obj\\",
+      "projectPath": "C:\\Users\\ZCpU0\\OneDrive\\Documents\\GitHub\\Software engineering Assessment 1 Hospital System\\Software-engineering-Assessment-1-Hospital-System\\Hospital System\\Hospital System\\Hospital System.csproj",
+      "packagesPath": "C:\\Users\\ZCpU0\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ZCpU0\\OneDrive\\Documents\\GitHub\\Software engineering Assessment 1 Hospital System\\Software-engineering-Assessment-1-Hospital-System\\Hospital System\\Hospital System\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\NatHa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ZCpU0\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1329,7 +1541,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1356,11 +1567,15 @@
         "dependencies": {
           "Microsoft.Data.Sqlite.Core": {
             "target": "Package",
-            "version": "[10.0.4, )"
+            "version": "[10.0.5, )"
           },
           "SQLite": {
             "target": "Package",
             "version": "[3.13.0, )"
+          },
+          "SQLitePCLRaw.bundle_e_sqlcipher": {
+            "target": "Package",
+            "version": "[2.1.11, )"
           },
           "SQLitePCLRaw.core": {
             "target": "Package",
@@ -1372,7 +1587,7 @@
           },
           "System.Data.SQLite.EF6": {
             "target": "Package",
-            "version": "[2.0.2, )"
+            "version": "[2.0.3, )"
           }
         },
         "imports": [
