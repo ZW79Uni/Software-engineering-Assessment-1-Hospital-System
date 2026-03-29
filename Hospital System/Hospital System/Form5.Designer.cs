@@ -34,6 +34,7 @@
             dataGridView2 = new DataGridView();
             Date = new DataGridViewTextBoxColumn();
             Doctor = new DataGridViewTextBoxColumn();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -41,29 +42,27 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(17, 180);
-            dataGridView1.Margin = new Padding(4, 5, 4, 5);
+            dataGridView1.Location = new Point(12, 108);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(474, 500);
+            dataGridView1.Size = new Size(332, 300);
             dataGridView1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(231, 132);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.BackColor = Color.White;
+            label1.Location = new Point(146, 81);
             label1.Name = "label1";
-            label1.Size = new Size(115, 25);
+            label1.Size = new Size(76, 15);
             label1.TabIndex = 1;
             label1.Text = "Your Records";
             // 
             // button1
             // 
-            button1.Location = new Point(17, 35);
-            button1.Margin = new Padding(4, 5, 4, 5);
+            button1.Location = new Point(12, 21);
             button1.Name = "button1";
-            button1.Size = new Size(107, 38);
+            button1.Size = new Size(75, 23);
             button1.TabIndex = 2;
             button1.Text = "Go back";
             button1.UseVisualStyleBackColor = true;
@@ -73,10 +72,11 @@
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView2.Columns.AddRange(new DataGridViewColumn[] { Date, Doctor });
-            dataGridView2.Location = new Point(657, 180);
+            dataGridView2.Location = new Point(460, 108);
+            dataGridView2.Margin = new Padding(2);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersWidth = 62;
-            dataGridView2.Size = new Size(474, 500);
+            dataGridView2.Size = new Size(332, 300);
             dataGridView2.TabIndex = 3;
             dataGridView2.CellContentClick += dataGridView2_CellContentClick;
             // 
@@ -94,17 +94,29 @@
             Doctor.Name = "Doctor";
             Doctor.Width = 150;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.White;
+            label2.BorderStyle = BorderStyle.FixedSingle;
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(555, 81);
+            label2.Name = "label2";
+            label2.Size = new Size(146, 17);
+            label2.TabIndex = 4;
+            label2.Text = "Appointment information";
+            // 
             // Form5
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(1143, 750);
+            BackColor = Color.FromArgb(0, 94, 184);
+            ClientSize = new Size(800, 450);
+            Controls.Add(label2);
             Controls.Add(dataGridView2);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
-            Margin = new Padding(4, 5, 4, 5);
             Name = "Form5";
             Text = "Form5";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -121,5 +133,6 @@
         private DataGridView dataGridView2;
         private DataGridViewTextBoxColumn Date;
         private DataGridViewTextBoxColumn Doctor;
+        private Label label2;
     }
 }
