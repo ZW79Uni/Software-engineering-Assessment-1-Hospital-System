@@ -35,13 +35,14 @@
             PasswordTextBox = new RichTextBox();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
-            incorrectBox = new TextBox();
             textBox3 = new TextBox();
             idTextBox = new RichTextBox();
             textBox4 = new TextBox();
             DoctorLoginButton = new Button();
             button1 = new Button();
             richTextBox1 = new RichTextBox();
+            conftimButton = new Button();
+            loginStateLabel = new Label();
             SuspendLayout();
             // 
             // UsernamePassword
@@ -104,16 +105,6 @@
             textBox2.Size = new Size(314, 23);
             textBox2.TabIndex = 6;
             // 
-            // incorrectBox
-            // 
-            incorrectBox.BorderStyle = BorderStyle.None;
-            incorrectBox.ForeColor = Color.Black;
-            incorrectBox.Location = new Point(307, 339);
-            incorrectBox.Name = "incorrectBox";
-            incorrectBox.ReadOnly = true;
-            incorrectBox.Size = new Size(258, 16);
-            incorrectBox.TabIndex = 7;
-            // 
             // textBox3
             // 
             textBox3.Location = new Point(261, 169);
@@ -168,6 +159,26 @@
             richTextBox1.TabIndex = 13;
             richTextBox1.Text = "";
             // 
+            // conftimButton
+            // 
+            conftimButton.Location = new Point(367, 308);
+            conftimButton.Name = "conftimButton";
+            conftimButton.Size = new Size(112, 43);
+            conftimButton.TabIndex = 14;
+            conftimButton.Text = "L O G I N";
+            conftimButton.UseVisualStyleBackColor = true;
+            conftimButton.Click += conftimButton_Click;
+            // 
+            // loginStateLabel
+            // 
+            loginStateLabel.AutoSize = true;
+            loginStateLabel.BackColor = Color.White;
+            loginStateLabel.Location = new Point(329, 141);
+            loginStateLabel.Name = "loginStateLabel";
+            loginStateLabel.Size = new Size(166, 15);
+            loginStateLabel.TabIndex = 15;
+            loginStateLabel.Text = "You are logging in as a patient";
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -175,12 +186,13 @@
             BackColor = Color.FromArgb(0, 94, 184);
             CausesValidation = false;
             ClientSize = new Size(800, 450);
+            Controls.Add(loginStateLabel);
+            Controls.Add(conftimButton);
             Controls.Add(button1);
             Controls.Add(DoctorLoginButton);
             Controls.Add(textBox4);
             Controls.Add(idTextBox);
             Controls.Add(textBox3);
-            Controls.Add(incorrectBox);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(PasswordTextBox);
@@ -204,12 +216,13 @@
         private RichTextBox PasswordTextBox;
         private TextBox textBox1;
         private TextBox textBox2;
-        private TextBox incorrectBox;
         private TextBox textBox3;
         private RichTextBox idTextBox;
         private TextBox textBox4;
         private Button DoctorLoginButton;
         private Button button1;
         private RichTextBox richTextBox1;
+        private Button conftimButton;
+        private Label loginStateLabel;
     }
 }

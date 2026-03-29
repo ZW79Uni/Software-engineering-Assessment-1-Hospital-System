@@ -36,18 +36,20 @@
             textBox2 = new TextBox();
             timeDropDown = new ComboBox();
             bookAppoitment = new Button();
-            appointmentNoteTextBox = new TextBox();
             mainMenuButton = new Button();
             label1 = new Label();
             richTextBox1 = new RichTextBox();
             richTextBox2 = new RichTextBox();
+            button1 = new Button();
+            appointmentNoteTextBox = new RichTextBox();
+            monthYear = new Label();
             ((System.ComponentModel.ISupportInitialize)datePicker).BeginInit();
             SuspendLayout();
             // 
             // doctorDropDown
             // 
             doctorDropDown.FormattingEnabled = true;
-            doctorDropDown.Location = new Point(91, 116);
+            doctorDropDown.Location = new Point(91, 97);
             doctorDropDown.Name = "doctorDropDown";
             doctorDropDown.Size = new Size(213, 23);
             doctorDropDown.TabIndex = 0;
@@ -56,18 +58,18 @@
             // datePicker
             // 
             datePicker.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            datePicker.Location = new Point(461, 87);
+            datePicker.Location = new Point(383, 87);
             datePicker.Name = "datePicker";
             datePicker.ScrollBars = ScrollBars.None;
-            datePicker.Size = new Size(308, 249);
+            datePicker.Size = new Size(405, 249);
             datePicker.TabIndex = 1;
             datePicker.CellContentClick += datePicker_CellContentClick;
             // 
             // previousMonth
             // 
-            previousMonth.Location = new Point(463, 58);
+            previousMonth.Location = new Point(401, 58);
             previousMonth.Name = "previousMonth";
-            previousMonth.Size = new Size(138, 23);
+            previousMonth.Size = new Size(127, 23);
             previousMonth.TabIndex = 2;
             previousMonth.Text = "Previous Month";
             previousMonth.UseVisualStyleBackColor = true;
@@ -75,9 +77,9 @@
             // 
             // nextMonth
             // 
-            nextMonth.Location = new Point(629, 58);
+            nextMonth.Location = new Point(650, 58);
             nextMonth.Name = "nextMonth";
-            nextMonth.Size = new Size(138, 23);
+            nextMonth.Size = new Size(126, 23);
             nextMonth.TabIndex = 3;
             nextMonth.Text = "Next Month";
             nextMonth.UseVisualStyleBackColor = true;
@@ -85,7 +87,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(91, 87);
+            textBox1.Location = new Point(91, 68);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(213, 23);
             textBox1.TabIndex = 4;
@@ -93,25 +95,25 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(461, 339);
+            textBox2.Location = new Point(383, 339);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(308, 23);
+            textBox2.Size = new Size(405, 23);
             textBox2.TabIndex = 5;
             textBox2.Text = "Choose a time!";
             // 
             // timeDropDown
             // 
             timeDropDown.FormattingEnabled = true;
-            timeDropDown.Location = new Point(461, 362);
+            timeDropDown.Location = new Point(383, 362);
             timeDropDown.Name = "timeDropDown";
-            timeDropDown.Size = new Size(308, 23);
+            timeDropDown.Size = new Size(405, 23);
             timeDropDown.TabIndex = 6;
             // 
             // bookAppoitment
             // 
             bookAppoitment.BackColor = Color.FromArgb(118, 134, 146);
             bookAppoitment.FlatStyle = FlatStyle.Popup;
-            bookAppoitment.Location = new Point(524, 397);
+            bookAppoitment.Location = new Point(499, 397);
             bookAppoitment.Name = "bookAppoitment";
             bookAppoitment.Size = new Size(190, 41);
             bookAppoitment.TabIndex = 7;
@@ -119,20 +121,13 @@
             bookAppoitment.UseVisualStyleBackColor = false;
             bookAppoitment.Click += bookAppoitment_Click;
             // 
-            // appointmentNoteTextBox
-            // 
-            appointmentNoteTextBox.Location = new Point(91, 293);
-            appointmentNoteTextBox.Name = "appointmentNoteTextBox";
-            appointmentNoteTextBox.Size = new Size(213, 23);
-            appointmentNoteTextBox.TabIndex = 8;
-            // 
             // mainMenuButton
             // 
-            mainMenuButton.Location = new Point(230, 12);
+            mainMenuButton.Location = new Point(401, -2);
             mainMenuButton.Name = "mainMenuButton";
-            mainMenuButton.Size = new Size(159, 41);
+            mainMenuButton.Size = new Size(402, 27);
             mainMenuButton.TabIndex = 9;
-            mainMenuButton.Text = "Back to main menu";
+            mainMenuButton.Text = "View Medical Records";
             mainMenuButton.UseVisualStyleBackColor = true;
             mainMenuButton.Click += mainMenuButton_Click;
             // 
@@ -140,7 +135,7 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.White;
-            label1.Location = new Point(129, 275);
+            label1.Location = new Point(126, 142);
             label1.Name = "label1";
             label1.Size = new Size(135, 15);
             label1.TabIndex = 10;
@@ -148,7 +143,7 @@
             // 
             // richTextBox1
             // 
-            richTextBox1.Location = new Point(54, 70);
+            richTextBox1.Location = new Point(48, 47);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.Size = new Size(304, 302);
             richTextBox1.TabIndex = 11;
@@ -158,11 +153,38 @@
             // 
             richTextBox2.BackColor = Color.FromArgb(35, 31, 32);
             richTextBox2.BorderStyle = BorderStyle.None;
-            richTextBox2.Location = new Point(461, 50);
+            richTextBox2.Location = new Point(383, 50);
             richTextBox2.Name = "richTextBox2";
-            richTextBox2.Size = new Size(308, 335);
+            richTextBox2.Size = new Size(405, 335);
             richTextBox2.TabIndex = 12;
             richTextBox2.Text = "";
+            // 
+            // button1
+            // 
+            button1.Location = new Point(0, -2);
+            button1.Name = "button1";
+            button1.Size = new Size(404, 27);
+            button1.TabIndex = 13;
+            button1.Text = "Book an appointment";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // appointmentNoteTextBox
+            // 
+            appointmentNoteTextBox.Location = new Point(91, 160);
+            appointmentNoteTextBox.Name = "appointmentNoteTextBox";
+            appointmentNoteTextBox.Size = new Size(213, 176);
+            appointmentNoteTextBox.TabIndex = 14;
+            appointmentNoteTextBox.Text = "";
+            // 
+            // monthYear
+            // 
+            monthYear.AutoSize = true;
+            monthYear.BackColor = Color.White;
+            monthYear.Location = new Point(554, 62);
+            monthYear.Name = "monthYear";
+            monthYear.Size = new Size(71, 15);
+            monthYear.TabIndex = 15;
+            monthYear.Text = "PlaceHolder";
             // 
             // Form3
             // 
@@ -170,9 +192,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 94, 184);
             ClientSize = new Size(800, 450);
+            Controls.Add(monthYear);
+            Controls.Add(appointmentNoteTextBox);
+            Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(mainMenuButton);
-            Controls.Add(appointmentNoteTextBox);
             Controls.Add(bookAppoitment);
             Controls.Add(timeDropDown);
             Controls.Add(textBox2);
@@ -200,10 +224,12 @@
         private TextBox textBox2;
         private ComboBox timeDropDown;
         private Button bookAppoitment;
-        private TextBox appointmentNoteTextBox;
         private Button mainMenuButton;
         private Label label1;
         private RichTextBox richTextBox1;
         private RichTextBox richTextBox2;
+        private Button button1;
+        private RichTextBox appointmentNoteTextBox;
+        private Label monthYear;
     }
 }

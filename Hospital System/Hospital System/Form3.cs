@@ -32,6 +32,8 @@ namespace Hospital_System
 
             uID = ID;
             userTag = userName;
+
+            button1.Enabled = false;
         }
         void populateAppoitmentDates(int indexM, int indexY) //creates the dates within the calender system
         {
@@ -58,7 +60,7 @@ namespace Hospital_System
                     if (row == 1 && col >= firstDayOfWeek)
                     {
                         DateTime currentDate = new DateTime(indexY, indexM, day);
-                        datePicker.Rows[row].Cells[col].Value = day + "/" + indexM + "/" + indexY;
+                        datePicker.Rows[row].Cells[col].Value = day;
 
                         if (currentDate < DateTime.Today) //if the date has passed make the cell unable to be clicked and grey
                         {
@@ -76,7 +78,7 @@ namespace Hospital_System
                     else if (row > 1 && day <= daysInCurrentMonth)
                     {
                         DateTime currentDate = new DateTime(indexY, indexM, day);
-                        datePicker.Rows[row].Cells[col].Value = day + "/" + indexM + "/" + indexY;
+                        datePicker.Rows[row].Cells[col].Value = day;
 
                         if (currentDate < DateTime.Today)
                         {
@@ -93,6 +95,10 @@ namespace Hospital_System
                     }
                 }
             }
+            datePicker.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            datePicker.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            string[] months = { "January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+            monthYear.Text = months[indexMonth - 1] + " " + indexYear; 
         }
         void doctorAppoitmentStructure() //Creates the structure of the calender system
         {
@@ -307,8 +313,8 @@ namespace Hospital_System
         private void mainMenuButton_Click(object sender, EventArgs e) //quit button to take you back to main menu
         {
             this.Hide();
-            Form2 form2 = new Form2(userTag, uID);
-            form2.ShowDialog();
+            Form5 form5 = new Form5(userTag, uID);
+            form5.ShowDialog();
             this.Close();
         }
     }

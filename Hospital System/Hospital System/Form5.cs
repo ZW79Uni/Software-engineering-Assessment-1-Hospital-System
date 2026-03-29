@@ -25,6 +25,7 @@ namespace Hospital_System
         string userTag;
         string connectionString = @"Data Source=Hospital Database System_encrypted.db;Password=a3lKC467MQsD2d3F;";//Connects the program to the SQLite database
 
+
         public Form5(string Username, int ID)
         {
             InitializeComponent();
@@ -41,6 +42,7 @@ namespace Hospital_System
             string selectIllness = "SELECT record.illness from recordAllocation LEFT JOIN record ON(record.recordID = recordAllocation.recordID) LEFT JOIN patient ON(recordAllocation.patientID = patient.patientID) WHERE patient.patientID = @uID AND record.recordID = @i";
             string selectAllergy = "SELECT record.allergy from recordAllocation LEFT JOIN record ON(record.recordID = recordAllocation.recordID) LEFT JOIN patient ON(recordAllocation.patientID = patient.patientID) WHERE patient.patientID = @uID AND record.recordID = @i";
             string selectInjury = "SELECT record.injury from recordAllocation LEFT JOIN record ON(record.recordID = recordAllocation.recordID) LEFT JOIN patient ON(recordAllocation.patientID = patient.patientID) WHERE patient.patientID = @uID AND record.recordID = @i";
+            button3.Enabled = false;
             using (SqliteConnection conn = new SqliteConnection(connectionString))
             {
                 conn.Open();
@@ -162,7 +164,7 @@ namespace Hospital_System
                         }
                     }
                 }
-
+                dataGridView1.Enabled = false;
             }
             using (SqliteConnection conn = new SqliteConnection(connectionString))
             {
@@ -187,7 +189,7 @@ namespace Hospital_System
                 }
 
             }
-
+            dataGridView2.Enabled = false;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -226,8 +228,8 @@ namespace Hospital_System
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            Form2 form2 = new Form2(userTag, uID);
-            form2.ShowDialog();
+            Form3 form3 = new Form3(userTag, uID);
+            form3.ShowDialog();
             this.Close();
         }
 
@@ -238,7 +240,8 @@ namespace Hospital_System
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            this.Close();
         }
     }
 }

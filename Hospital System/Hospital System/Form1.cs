@@ -14,6 +14,7 @@ namespace Hospital_System
     public partial class Login : Form
     {
         string connectionString = @"Data Source=Hospital Database System_encrypted.db;Password=a3lKC467MQsD2d3F;";//Connects the program to the SQLite database
+        bool loginState = true;
         public Login()
         {
             Batteries_V2.Init();
@@ -24,39 +25,12 @@ namespace Hospital_System
             textBox2.Hide();
         }
         string UsernameDisplay = String.Empty;
-        string PasswordDisplay = String.Empty; //might have to encrypt this or something
+        string PasswordDisplay = String.Empty; //some left over test stuff
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            //if username and password match the database,
-            using (SqliteConnection conn = new SqliteConnection(connectionString))
-            {
-                conn.Open(); //opens the connection to the database
-                string query = "SELECT * FROM patient WHERE @id = patientID AND username = @username AND password = @password"; // Query to see if the inputted credentials exist in the database
-                using (SqliteCommand cmd = new SqliteCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@id", idTextBox.Text);
-                    cmd.Parameters.AddWithValue("@username", UsernameTextBox.Text); // inputs the ID and password into the query
-                    cmd.Parameters.AddWithValue("@password", encryptPassword(PasswordTextBox.Text)); // May need to add encryption I think
-                    var result = cmd.ExecuteScalar(); // var makes the compiler infers the type of the variable, ExecuteScalar is used to execute the query and return a single value (the patientID if the credentials are correct, or null if they are not)
-                    if (result != null)
-                    {
-                        //if they do, open the next form
-                        this.Hide();
-                        Form2 form2 = new Form2(UsernameTextBox.Text, Convert.ToInt32(idTextBox.Text));
-                        form2.ShowDialog();
-                        this.Close();
-                    }
-                    
-                    else
-                     {
-                       //if patient and doctor details don't exist, display an error message
-                       incorrectBox.Text = "Incorrect username or password. Please try again.";
-                     }
-                        
-                    
-                }
-            }
+            loginState = true;
+            loginStateLabel.Text = "you are logging in as a patient";
         }
 
         private void UsernameTextBox_TextChanged(object sender, EventArgs e)
@@ -236,33 +210,8 @@ namespace Hospital_System
 
         private void DoctorLoginButton_Click(object sender, EventArgs e)
         {
-            using (SqliteConnection conn = new SqliteConnection(connectionString))
-            {
-                conn.Open();
-                {
-                    string queryDoctor = "SELECT * FROM doctor WHERE @id = doctorID AND username = @username AND password = @password";
-                    using (SqliteCommand cmd2 = new SqliteCommand(queryDoctor, conn))
-                    {  
-                        cmd2.Parameters.AddWithValue("@id", idTextBox.Text);
-                        cmd2.Parameters.AddWithValue("@username", UsernameTextBox.Text);
-                        cmd2.Parameters.AddWithValue("@password", encryptPassword(PasswordTextBox.Text));
-                        var result2 = cmd2.ExecuteScalar();
-                        // ZACH, THERE IS A BUG HERE. I dont think the username table exists. 
-                        if (result2 != null)
-                        {
-                            this.Hide();
-                            Form4 form4 = new Form4();
-                            form4.ShowDialog();
-                            this.Close();
-                        }
-                        else
-                        {
-                            //if patient and doctor details don't exist, display an error message
-                            incorrectBox.Text = "Incorrect username or password. Please try again.";
-                        }
-                    }
-                }
-            }
+            loginState = false;
+            loginStateLabel.Text = "you are logging in as a doctor";
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -291,11 +240,73 @@ namespace Hospital_System
         }
         string encryptPassword(string password)
         {
-           using (SHA256 sha = SHA256.Create())
-           {
+            using (SHA256 sha = SHA256.Create())
+            {
                 byte[] bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(password));
                 return Convert.ToBase64String(bytes);
-           }
+            }
+        }
+
+        private void conftimButton_Click(object sender, EventArgs e)
+        {
+            if(loginState == true)
+            {
+                //if username and password match the database,
+                using (SqliteConnection conn = new SqliteConnection(connectionString))
+                {
+                    conn.Open(); //opens the connection to the database
+                    string query = "SELECT * FROM patient WHERE @id = patientID AND username = @username AND password = @password"; // Query to see if the inputted credentials exist in the database
+                    using (SqliteCommand cmd = new SqliteCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", idTextBox.Text);
+                        cmd.Parameters.AddWithValue("@username", UsernameTextBox.Text); // inputs the ID, Username and password into the query
+                        cmd.Parameters.AddWithValue("@password", encryptPassword(PasswordTextBox.Text));
+                        var result = cmd.ExecuteScalar(); // var makes the compiler infers the type of the variable, ExecuteScalar is used to execute the query and return a single value (the patientID if the credentials are correct, or null if they are not)
+                        if (result != null)
+                        {
+                            //if they do, open the next form
+                            this.Hide();
+                            Form3 form3 = new Form3(UsernameTextBox.Text, Convert.ToInt32(idTextBox.Text));
+                            form3.ShowDialog();
+                            this.Close();
+                        }
+                        else
+                        {
+                            //if patient and doctor details don't exist, display an error message
+                            MessageBox.Show("Error Invalid credentials");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                using (SqliteConnection conn = new SqliteConnection(connectionString))
+                {
+                    conn.Open();
+                    {
+                        string queryDoctor = "SELECT * FROM doctor WHERE @id = doctorID AND username = @username AND password = @password";
+                        using (SqliteCommand cmd2 = new SqliteCommand(queryDoctor, conn))
+                        {
+                            cmd2.Parameters.AddWithValue("@id", idTextBox.Text);
+                            cmd2.Parameters.AddWithValue("@username", UsernameTextBox.Text);
+                            cmd2.Parameters.AddWithValue("@password", encryptPassword(PasswordTextBox.Text));
+                            var result2 = cmd2.ExecuteScalar();
+                            if (result2 != null)
+                            {
+                                this.Hide();
+                                Form4 form4 = new Form4();
+                                form4.ShowDialog();
+                                this.Close();
+                            }
+                            else
+                            {
+                                //if patient and doctor details don't exist, display an error message
+                                MessageBox.Show("Error Invalid credentials");
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

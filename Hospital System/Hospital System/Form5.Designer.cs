@@ -36,6 +36,7 @@
             Doctor = new DataGridViewTextBoxColumn();
             label2 = new Label();
             button2 = new Button();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -61,11 +62,11 @@
             // 
             // button1
             // 
-            button1.Location = new Point(12, 21);
+            button1.Location = new Point(408, -1);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(392, 27);
             button1.TabIndex = 2;
-            button1.Text = "Go back";
+            button1.Text = "Book an appointment";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click_1;
             // 
@@ -119,12 +120,22 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
+            // button3
+            // 
+            button3.Location = new Point(0, -1);
+            button3.Name = "button3";
+            button3.Size = new Size(410, 27);
+            button3.TabIndex = 6;
+            button3.Text = "View Medical Records";
+            button3.UseVisualStyleBackColor = true;
+            // 
             // Form5
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 94, 184);
             ClientSize = new Size(800, 450);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(label2);
             Controls.Add(dataGridView2);
@@ -149,5 +160,6 @@
         private DataGridViewTextBoxColumn Doctor;
         private Label label2;
         private Button button2;
+        private Button button3;
     }
 }
