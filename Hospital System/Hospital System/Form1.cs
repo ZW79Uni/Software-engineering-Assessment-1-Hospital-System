@@ -23,6 +23,7 @@ namespace Hospital_System
             //encrypt();
             textBox1.Hide();
             textBox2.Hide();
+            textBox4.Hide();
         }
         string UsernameDisplay = String.Empty;
         string PasswordDisplay = String.Empty; //some left over test stuff
